@@ -28,7 +28,7 @@ const MDViewer = ({ content }) => {
   }
 
   return (
-    <div className="prose prose-invert prose-slate prose-sm md:prose-base  h-fit w-full">
+    <div className="prose dark:prose-invert text-slate-950 dark:text-amber-100 prose-slate prose-sm md:prose-base  h-fit w-full">
       <div dangerouslySetInnerHTML={{ __html: marked(content) }} />
     </div>
   );
