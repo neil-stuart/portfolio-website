@@ -14,7 +14,7 @@ module.exports = {
               borderRadius: "1.05rem", // Adjust the radius as needed
             },
             hr: {
-              borderColor: '#f97316', // Replace 'yourColorHere' with the desired color
+              borderColor: '#fb923c', // Replace 'yourColorHere' with the desired color
             }
           },
         },
