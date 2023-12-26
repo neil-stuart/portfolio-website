@@ -27,7 +27,7 @@ const Project = () => {
     <div class={darkMode ? "dark" : ""}>
       <div  className="min-h-screen min-w-screen font-mono flex flex-col  items-center bg-yellow-100  dark:bg-slate-950">
 
-        <div className="flex flex-col max-w-[800px] w-full px-6 pt-40 pb-40 items-center">
+        <div className="flex flex-col max-w-[850px] w-full px-6 pt-40 pb-40 items-center">
 
           <div className="flex flex-col gap-10 md:gap-0 md:flex-row w-full pb-16 md:items-center justify-between">
 

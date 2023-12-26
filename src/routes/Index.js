@@ -525,7 +525,7 @@ export default function Index() {
     <div class={darkMode ? "dark" : ""}>
       <div
         className={
-          "bg-slate-950 dark:text-amber-100  select-none flex max-w-screen w-screen min-h-screen justify-center "
+          "bg-slate-950 dark:text-amber-100  select-none flex overflow-hidden max-w-screen w-screen min-h-screen justify-center "
         }
       >
         <div className="flex flex-col items-center max-w-[850px] p-10  md:px-5 md:overflow-hidden md:max-h-screen grow align-start ">

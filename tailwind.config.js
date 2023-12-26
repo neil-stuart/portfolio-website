@@ -11,8 +11,11 @@ module.exports = {
 
             // Add rounded borders to images within the prose element
             img: {
-              borderRadius: "8px", // Adjust the radius as needed
+              borderRadius: "1.05rem", // Adjust the radius as needed
             },
+            hr: {
+              borderColor: '#f97316', // Replace 'yourColorHere' with the desired color
+            }
           },
         },
       },

@@ -16,6 +16,16 @@ code {
     monospace;
 }
 
+/* Custom styles for list bullets */
+.prose ul > li::before {
+  background-color: #f97316;
+}
+
+/* Custom styles for list numbers */
+.prose ol > li::before {
+  color: #f97316;
+}
+
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
