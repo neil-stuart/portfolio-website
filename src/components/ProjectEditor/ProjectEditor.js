@@ -112,10 +112,10 @@ export const ProjectEditor = () => {
   }, [project, auth]);
 
   return (
-    <>
+    <div className="overflow-hidden">
     {project &&
-    <div className="h-fit overflow-hidden min-w-screen flex flex-row ">
-    <div className="max-h-screen min-h-screen min-w-screen font-mono flex flex-col  items-center bg-slate-900">
+    <div className="h-fit dark overflow-hidden min-w-screen flex flex-row ">
+    <div className="max-h-screen min-h-screen min-w-screen font-mono flex flex-col  items-center bg-slate-950">
       <div className="flex flex-col overflow-y-auto min-w-[50vw] max-w-[800px] w-full px-6 pt-40 items-center">
         <div className="flex flex-row w-full pb-16 items-center justify-between">
           <h1 className="text-base xs:text-xl font-semibold flex flex-row items-center gap-8 text-slate-300">
@@ -129,10 +129,10 @@ export const ProjectEditor = () => {
         <MDViewer content={project.content} />
       </div>
     </div>
-    <div className="flex flex-grow max-h-screen min-h-screen bg-slate-900">
-      <textarea className="p-10 border-l border-slate-400 flex-grow bg-slate-900 w-full font-mono text-slate-200" value={project.content} onChange={(e) => setProject({ ...project, content: e.target.value })} />
+    <div className="flex flex-grow max-h-screen min-h-screen bg-slate-950">
+      <textarea className="p-10 flex-grow bg-slate-950 w-full font-mono text-slate-200" value={project.content} onChange={(e) => setProject({ ...project, content: e.target.value })} />
     </div>
     </div>}
-    </>
+    </div>
   );
 };
