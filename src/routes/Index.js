@@ -294,21 +294,21 @@ const Skills = ({ darkMode }) => {
   };
 
   const icons = [
-    <SiJavascript size={25} />,
-    <SiC size={25} />,
-    <SiPython size={25} />,
-    <SiHtml5 size={25} />,
-    <SiCss3 size={25} />,
-    <SiMongodb size={25} />,
-    <SiMysql size={25} />,
-    <SiFlask size={25} />,
-    <SiReact size={25} />,
-    <SiNextdotjs size={25} />,
-    <SiTailwindcss size={25} />,
-    <SiMui size={25} />,
-    <SiStyledcomponents size={25} />,
-    <SiHeroku size={25} />,
-    <SiGithub size={25} />,
+    <SiJavascript size={20} />,
+    <SiC size={20} />,
+    <SiPython size={20} />,
+    <SiHtml5 size={20} />,
+    <SiCss3 size={20} />,
+    <SiMongodb size={20} />,
+    <SiMysql size={20} />,
+    <SiFlask size={20} />,
+    <SiReact size={20} />,
+    <SiNextdotjs size={20} />,
+    <SiTailwindcss size={20} />,
+    <SiMui size={20} />,
+    <SiStyledcomponents size={20} />,
+    <SiHeroku size={20} />,
+    <SiGithub size={20} />,
   ];
 
   const iconNames = [
@@ -418,7 +418,7 @@ const Skills = ({ darkMode }) => {
 
 const Info = () => {
   return (
-    <div className="h-full w-full md:w-[47%] rounded-r-2xl px-5 py-3 font-bold text-lg text-yellow-100 dark:border-yellow-100 dark:border-y dark:border-r dark:border-opacity-45 bg-slate-950">
+    <div className="h-full w-full md:w-[47%] rounded-2xl md:rounded-l-none px-5 py-3 font-bold text-lg text-yellow-100 dark:border-yellow-100 dark:border-y dark:border-r dark:border-opacity-45 bg-slate-950">
       Info
       <p className="text-xs mt-2 text-yellow-50 text-right"> Here's my CV</p>
       <div className=" text-yellow-200 text-sm text-right pt-2">
@@ -457,7 +457,7 @@ const Results = () => {
   
   const [results, setResults] = useState([]);
   return (
-    <div className="h-full w-full md:w-[53%] rounded-tl-2xl px-5 py-3 pb-8 font-bold text-md border-t dark:border-yellow-100 dark:border-opacity-45 border-slate-950">
+    <div className="h-full w-full md:w-[53%] rounded-2xl border-b md:border-b-0 md:rounded-tr-none  px-5 py-3 pb-8 font-bold text-md border-t dark:border-yellow-100 dark:border-opacity-45 border-slate-950">
       Results
       <div className="flex flex-col gap-2 h-60 md:h-full overflow-scroll scrollbar-hide mt-2">
         <div className="flex flex-row gap-2 items-center">
@@ -505,7 +505,8 @@ export default function Index() {
 
   const [darkMode, setDarkMode] = useState(false);
   const aboutMe =
-    " I'm a 3rd year Electrical & Electronic Engineering student at University of Galway. I'm currently looking for a summer-internship or co-op placement in 2024/25.";
+    " I am a 3rd year Electrical & Electronic Engineering student at University of Galway, currently looking for a summer-internship or co-op placement in 2024/25."
+  const aboutMe2 = "I have a strong interest in analogue & digital electronics and I have experience with LTSpice, KiCad, VHDL and Vivado. I am a hard-working, self-motivated and enthusiastic individual who is eager to learn and develop new skills";
 
 
   const [projects, setProjects] = useState([]);
@@ -528,15 +529,15 @@ export default function Index() {
           "bg-slate-950 dark:text-amber-100  select-none flex overflow-hidden max-w-screen w-screen min-h-screen justify-center "
         }
       >
-        <div className="flex flex-col items-center max-w-[850px] p-10  md:px-5 md:overflow-hidden md:max-h-screen grow align-start ">
+        <div className="flex flex-col items-center md:max-w-[850px] md:p-10 md:overflow-hidden md:max-h-screen grow align-start ">
           <div
             className={
-              "items-left p-8 w-full rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-amber-100  dark:bg-slate-900"
+              "p-8 items-start w-full rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-amber-100  dark:bg-slate-900"
             }
           >
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
-            <div className="flex z-10 flex-col">
+            <div className="flex  z-10 flex-col">
               <div className="flex font-bold px-2 h-fit py-2 content-start flex-row gap-16">
                 <div
                   className="font-underline cursor-pointer"
@@ -581,8 +582,11 @@ export default function Index() {
             {selectedNavItem === "Skills" && <Skills darkMode={darkMode} />}
 
             {selectedNavItem === "About" && (
-              <div className="grow font-semibold md:w-1/2 pb-16 md:pb-0 pl-8 pt-8 flex flex-row text-sm">
+              <div className="grow font-semibold md:w-1/2 pb-16 md:pb-0 md:pl-8  pt-8 flex flex-row text-sm">
                 {aboutMe}
+                <br/>
+                <br/>
+                {aboutMe2}
               </div>
             )}
             <div className="flex flex-col md:flex-row pt-4 gap-5 md:gap-0 w-full md:h-72">
