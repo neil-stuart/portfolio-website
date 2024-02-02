@@ -418,7 +418,7 @@ const Skills = ({ darkMode }) => {
 
 const Info = () => {
   return (
-    <div className="h-full w-full md:w-[47%] rounded-2xl md:rounded-l-none px-5 py-3 font-bold text-lg text-yellow-100 dark:border-yellow-100 dark:border-y dark:border-r dark:border-opacity-45 bg-slate-950">
+    <div className="h-full w-full md:w-[47%] rounded-2xl md:rounded-l-none px-5 py-3 font-bold text-lg text-amber-50 dark:border-yellow-100 dark:border-y dark:border-r dark:border-opacity-45 bg-slate-950">
       Info
       <p className="text-xs mt-2 text-yellow-50 text-right"> Here's my CV</p>
       <div className=" text-yellow-200 text-sm text-right pt-2">
@@ -472,7 +472,7 @@ const Results = () => {
               <div className="text-sm font-mono font-semibold text-slate-950 dark:text-yellow-100">
                 {result.name}
               </div>
-              <div className="text-sm font-semibold text-yellow-100 p-1 rounded-lg bg-emerald-500">
+              <div className="text-sm font-semibold text-yellow-50 p-1 rounded-lg bg-emerald-500">
                 {result.result}
               </div>
             </div>
@@ -489,7 +489,7 @@ const Results = () => {
               <div className="text-sm font-mono font-semibold text-slate-950 dark:text-yellow-100">
                 {result.name}
               </div>
-              <div className="text-sm font-semibold text-yellow-100 p-1 rounded-lg bg-emerald-500">
+              <div className="text-sm font-semibold text-yellow-50 p-1 rounded-lg bg-emerald-500">
                 {result.result}
               </div>
             </div>
@@ -532,7 +532,7 @@ export default function Index() {
         <div className="flex flex-col items-center md:max-w-[850px] md:p-10 md:overflow-hidden md:max-h-screen grow align-start ">
           <div
             className={
-              "p-8 items-start w-full rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-amber-100  dark:bg-slate-900"
+              "p-8 items-start w-full rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-amber-50  dark:bg-slate-900"
             }
           >
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
@@ -572,8 +572,8 @@ export default function Index() {
             />
             {selectedNavItem === "Projects" && (
               <div className="grid grid-flow-row items-start grid-cols-1 md:grid-cols-2 grow scrollbar-hide overflow-y-scroll mb-3 gap-5 w-full px-2 pt-3">
-
-                {projects.map((project) => (
+                {projects.length === 0 ? (<div className="text-md align-center font-semibold">No projects posted yet...</div>)
+                :projects.map((project) => (
                   <Project darkMode={darkMode} route={project.route} key={project.id} title={project.title} />
                 ))}
               </div>
