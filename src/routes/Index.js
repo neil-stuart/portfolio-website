@@ -584,9 +584,9 @@ export default function Index() {
             {selectedNavItem === "About" && (
               <div className="grow font-semibold md:w-1/2 pb-16 md:pb-0 md:pl-8  pt-8 flex flex-row text-sm">
                 {aboutMe}
+                {/* <br/>
                 <br/>
-                <br/>
-                {aboutMe2}
+                {aboutMe2} */}
               </div>
             )}
             <div className="flex flex-col md:flex-row pt-4 gap-5 md:gap-0 w-full md:h-72">
