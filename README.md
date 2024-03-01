@@ -21,9 +21,8 @@ My portfolio website is a platform where I continuously update my latest project
 - **Dynamic Content**: Keeps the site fresh with the latest updates on my work.
 - **Contact Information**: Provides easy access to my professional contact details and social media profiles.
 
-## Contact 📫
+## Links 📫
 
-- **Email**: neil.stuart11@gmail.com
-- **Portfolio Link**: [https://github.com/neil-stuart/portfolio-website](https://github.com/neil-stuart/portfolio-website)
+- **Portfolio Link**: [https://neilstu.art)
 
 Thank you for visiting my portfolio website repository.
