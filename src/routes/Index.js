@@ -23,7 +23,7 @@ import {
 
 const Header = ({ darkMode, setDarkMode }) => {
   return (
-    <div className="flex pb-4 px-1 flex-row w-full  border-b border-b-[0.12rem] border-slate-950 dark:border-amber-100 justify-between items-center">
+    <div className="flex pb-4 p-4 mb-2 md:mx-0 md:px-1 flex-row w-full  border-b border-b-[0.12rem] border-slate-950 dark:border-amber-100 justify-between items-center">
       <div className="flex flex-col gap-1 w-full justify-left">
         <div className="text-slate-950 dark:text-amber-100 gap-3 md:items-end flex flex-col md:flex-row">
           <div className="flex flex-row justify-between">
@@ -244,7 +244,7 @@ const HoverCard = ({ children, text, width, wrap }) => {
       const timeout = setTimeout(() => setHidden(true), 350);
       setAnimationTimeout(timeout); // Save the new timeout reference
     }
-  }, [hovered]);
+  }, [hovered, animationTimeout]);
 
   return (
     <div className="relative">
@@ -418,7 +418,7 @@ const Skills = ({ darkMode }) => {
 
 const Info = () => {
   return (
-    <div className="h-full w-full md:w-[47%] rounded-2xl md:rounded-l-none px-5 py-3 font-bold text-lg text-amber-50 dark:border-yellow-100 dark:border-y dark:border-r dark:border-opacity-45 bg-slate-950">
+    <div className="h-full w-full md:w-[47%] md:rounded-2xl md:rounded-l-none px-5 py-3 font-bold text-lg text-amber-50 dark:border-yellow-100 dark:border-y dark:border-r dark:border-opacity-45 bg-slate-950">
       Info
       <p className="text-xs mt-2 text-yellow-50 text-right"> Here's my CV</p>
       <div className=" text-yellow-200 text-sm text-right pt-2">
@@ -457,7 +457,7 @@ const Results = () => {
   
   const [results, setResults] = useState([]);
   return (
-    <div className="h-full w-full md:w-[53%] rounded-2xl border-b md:border-b-0 md:rounded-tr-none  px-5 py-3 pb-8 font-bold text-md border-t dark:border-yellow-100 dark:border-opacity-45 border-slate-950">
+    <div className="h-full w-full md:w-[53%] md:rounded-2xl md:border-b md:border-b-0 md:rounded-tr-none  px-5 py-3 pb-8 font-bold text-md border-t dark:border-yellow-100 dark:border-opacity-45 border-slate-950">
       Results
       <div className="flex flex-col gap-2 h-60 md:h-full overflow-scroll scrollbar-hide mt-2">
         <div className="flex flex-row gap-2 items-center">
@@ -532,12 +532,12 @@ export default function Index() {
         <div className="flex flex-col items-center md:max-w-[850px] md:p-10 md:overflow-hidden md:max-h-screen grow align-start ">
           <div
             className={
-              "p-8 items-start w-full rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-amber-50  dark:bg-slate-900"
+              "md:p-8 items-start w-full md:rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-amber-50  dark:bg-slate-900"
             }
           >
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
-            <div className="flex  z-10 flex-col">
+            <div className="flex md:px-0 z-10 flex-col">
               <div className="flex font-bold px-2 h-fit py-2 content-start flex-row gap-16">
                 <div
                   className="font-underline cursor-pointer"
