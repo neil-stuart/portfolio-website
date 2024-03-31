@@ -7,7 +7,7 @@ export async function GET(req) {
         activeUser: process.env.NOTION_USERID
     })
     
-    const data = await notion.getCollectionData("8f6783dd-061b-45a8-923f-d64f2f17de14","102df1b5-bca6-40b7-9040-d1731f84a15e")
+    const data = await notion.getCollectionData(process.env.NOTION_COLLECTIONID,process.env.NOTION_COLLECTIONVIEWID)
 
     const blockMap = data.recordMap.block;
     const collectionId = data.collectionIds[0];
