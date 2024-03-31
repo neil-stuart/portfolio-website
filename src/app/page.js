@@ -1,3 +1,8 @@
+"use client";
+
+import "./index.css";
+import "./output.css";
+
 import { useEffect, useState } from "react";
 import "@theme-toggles/react/css/Within.css";
 import { Within } from "@theme-toggles/react";
@@ -51,7 +56,7 @@ const Header = ({ darkMode, setDarkMode }) => {
         </div>
       </div>
       <Within
-        className="text-xl  md:text-[1.65rem] "
+        className="text-[2rem] "
         toggled={darkMode}
         toggle={setDarkMode}
       />
@@ -137,7 +142,7 @@ const UnderlineMoving = ({ selectedNavItem, hoveredNavItem }) => {
   );
 };
 
-const Project = ({ title, route, darkMode }) => {
+const Project = ({ title, slug, darkMode }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -145,7 +150,7 @@ const Project = ({ title, route, darkMode }) => {
       className="relative cursor-pointer"
       onClick={
         () => {
-          window.location.href = "/project/" + route;
+          window.location.href = "/project/" + slug;
         }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -212,7 +217,7 @@ const Project = ({ title, route, darkMode }) => {
           height: hovered ? "0.9rem" : "0rem",
           transition: "height 0.2s ease-in-out 0.1s",
 
-          width: title.length.toFixed(2) / 1.98 + "rem",
+          width: title.length.toFixed(2) / 1.65 + "rem",
         }}
         className="h-[1.3rem] top-[0.8rem] left-5 z-0 absolute bg-orange-400 opacity-45"
       >
@@ -222,7 +227,7 @@ const Project = ({ title, route, darkMode }) => {
   );
 };
 
-const HoverCard = ({ children, text, width, wrap }) => {
+const HoverCard = ({ children, text, width, wrap, index }) => {
   const [hovered, setHovered] = useState(false);
   const transitions =
     "bottom 0.3s cubic-bezier(0.37, 0.2, 0.32, 0.99), opacity 0.3s cubic-bezier(0.37, 0.2, 0.32, 0.99)";
@@ -233,21 +238,21 @@ const HoverCard = ({ children, text, width, wrap }) => {
   const [animationTimeout, setAnimationTimeout] = useState(null);
 
   useEffect(() => {
+    let timeout;
     if (hovered) {
       setHidden(false);
       clearTimeout(animationTimeout); // Cancel previous timeout
-      const timeout = setTimeout(() => setVisible(true), 100);
-      setAnimationTimeout(timeout); // Save the new timeout reference
+      timeout = setTimeout(() => setVisible(true), 100);
     } else {
       setVisible(false);
       clearTimeout(animationTimeout); // Cancel previous timeout
-      const timeout = setTimeout(() => setHidden(true), 350);
-      setAnimationTimeout(timeout); // Save the new timeout reference
+      timeout = setTimeout(() => setHidden(true), 350);
     }
-  }, [hovered, animationTimeout]);
+    setAnimationTimeout(timeout); // Save the new timeout reference
+  }, [hovered]);
 
   return (
-    <div className="relative">
+    <div key={index} className="relative">
       {
         <div
           className=" absolute "
@@ -403,7 +408,7 @@ const Skills = ({ darkMode }) => {
           </h1>
           <div className="flex flex-row flex-wrap gap-5">
             {ElectricalandElectronicSkills.map((skill, index) => (
-              <HoverCard width="12rem" text={skill.text}>
+              <HoverCard key={index} width="12rem" text={skill.text}>
                 <div className="text-sm p-[0.3rem] hover:scale-90 transition-all duration-300  font-semibold border border-emerald-700 rounded-lg">
                   {skill.name}
                 </div>
@@ -452,7 +457,8 @@ const Results = () => {
   useEffect(() => {
     fetch("/api/results")
       .then((res) => res.json())
-      .then((data) => setResults(data));
+      .then((data) => setResults(data.body));
+
   }, []);
   
   const [results, setResults] = useState([]);
@@ -467,8 +473,8 @@ const Results = () => {
         </div>
         {results
           .filter((result) => result.year === 2)
-          .map((result) => (
-            <div className="flex flex-row justify-between border-b border-slate-700 dark:border-yellow-100 dark:border-opacity-45  pb-3 mx-4 items-center">
+          .map((result, index) => (
+            <div key={index} className="flex flex-row justify-between border-b border-slate-700 dark:border-yellow-100 dark:border-opacity-45  pb-3 mx-4 items-center">
               <div className="text-sm font-mono font-semibold text-slate-950 dark:text-yellow-100">
                 {result.name}
               </div>
@@ -484,8 +490,8 @@ const Results = () => {
         </div>
         {results
           .filter((result) => result.year === 1)
-          .map((result) => (
-            <div className="flex flex-row justify-between border-b border-slate-700 dark:border-yellow-100 dark:border-opacity-45    pb-3 mx-4 items-center">
+          .map((result, index) => (
+            <div key={index} className="flex flex-row justify-between border-b border-slate-700 dark:border-yellow-100 dark:border-opacity-45    pb-3 mx-4 items-center">
               <div className="text-sm font-mono font-semibold text-slate-950 dark:text-yellow-100">
                 {result.name}
               </div>
@@ -512,18 +518,17 @@ export default function Index() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("/api/projects/titles")
+    fetch("/api/projects")
       .then((response) => response.json())
       .then((data) => {
-        setProjects(data);
-        console.log(data);
+        setProjects(data.body);
       })
       .catch((error) => {
         console.error("Error fetching projects:", error);
       });
   }, []);
   return (
-    <div class={darkMode ? "dark" : ""}>
+    <div className={darkMode ? "dark" : ""}>
       <div
         className={
           "bg-slate-950 dark:text-amber-100  select-none flex overflow-hidden max-w-screen w-screen min-h-screen justify-center "
@@ -532,7 +537,7 @@ export default function Index() {
         <div className="flex flex-col items-center md:max-w-[850px] md:p-10 md:overflow-hidden md:max-h-screen grow align-start ">
           <div
             className={
-              "md:p-8 items-start w-full md:rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-amber-50  dark:bg-slate-900"
+              "md:p-8 items-start w-full md:rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-slate-50  dark:bg-slate-900"
             }
           >
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
@@ -574,7 +579,7 @@ export default function Index() {
               <div className="grid grid-flow-row items-start grid-cols-1 md:grid-cols-2 grow scrollbar-hide overflow-y-scroll mb-3 gap-5 w-full px-2 pt-3">
                 {projects.length === 0 ? (<div className="text-md align-center font-semibold">No projects posted yet...</div>)
                 :projects.map((project) => (
-                  <Project darkMode={darkMode} route={project.route} key={project.id} title={project.title} />
+                  <Project darkMode={darkMode} slug={project.slug} key={project.id} title={project.title} />
                 ))}
               </div>
             )}

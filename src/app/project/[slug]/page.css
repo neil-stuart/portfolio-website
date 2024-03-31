@@ -1,0 +1,15 @@
+/* Resetting margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+.notion-app {
+  background-color: transparent !important;
+}
+
+.notion-page {
+  width: auto !important;
+  max-width: var(--notion-max-width) !important;
+}

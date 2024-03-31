@@ -1,14 +1,14 @@
+"use client"
 import { useState, useEffect } from "react"
-
-
-
+import "./../index.css"
+import "./../output.css"
 export default function Projects() {
     const [projects, setProjects] = useState([])
     useEffect(() => {
-        fetch("/api/projects/titles")
+        fetch("/api/projects")
             .then((response) => response.json())
             .then((data) => {
-                setProjects(data)
+                setProjects(data.body)
             })
             .catch((error) => {
                 console.error("Error fetching projects:", error)
@@ -51,7 +51,7 @@ export default function Projects() {
 
                                     <h1 className="text-base xs:text-xl font-semibold flex flex-row items-center gap-8 text-amber-100">
 
-                                        <div onClick={() => { window.location.href = `/project/${project.route}` }} className="bg-orange-300 cursor-pointer rounded-full w-3 h-3" />
+                                        <div onClick={() => { window.location.href = `/project/${project.slug}` }} className="bg-orange-300 cursor-pointer rounded-full w-3 h-3" />
 
                                         {project.title}
 
