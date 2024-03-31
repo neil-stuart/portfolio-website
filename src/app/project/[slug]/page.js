@@ -44,43 +44,24 @@ export default function Project({ params }) {
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    fetch("/api/projects")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(params.slug);
-        const project = data.body.find(project => project.slug === params.slug);
-        if (project) {
-          return project.id;
-        } else {
-          throw new Error('Project not found');
-        }
-      }).then((id) => {
-
-        return fetch(`/api/project/${id}`).then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-      }).then((data) => {
-        setRecordMap(data.recordMap);
-      })
-      .catch((error) => {
-        console.error("Error fetching project: ", error);
-      })
+    fetch(`/api/project/slug/${params.slug}`).then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    }).then((data) => {
+      setRecordMap(data.recordMap);
+    }).catch((error) => {
+      console.error("Error fetching project: ", error);
+    })
   }, [params.slug]);
 
 
 
   return (
     <div className={darkMode ? "dark" : ""}>
-    <div className="min-h-screen font-mono flex flex-col items-center dark:bg-slate-950">
-      <div className="flex flex-row pt-20  max-w-[720px] w-full pb-16 px-4 items-left gap-8 justify-between">
+      <div className="min-h-screen font-mono flex flex-col items-center dark:bg-slate-950">
+        <div className="flex flex-row pt-20  max-w-[720px] w-full pb-16 px-4 items-left gap-8 justify-between">
           <Within
             className=" text-slate-950 dark:text-amber-50 text-[2.5rem] "
             toggled={darkMode}
@@ -89,29 +70,29 @@ export default function Project({ params }) {
 
           <h1 className="text-lg xs:text-xl font-semibold flex flex-row items-center gap-8 dark:text-amber-50">
 
-              <div onClick={() => { window.location.href = "/" }} className="bg-slate-950 dark:bg-amber-50 cursor-pointer  rounded-full w-8 h-8" />
+            <div onClick={() => { window.location.href = "/" }} className="bg-slate-950 dark:bg-amber-50 cursor-pointer  rounded-full w-8 h-8" />
 
 
           </h1>
 
 
 
-      </div>
+        </div>
 
-      {recordMap === null ? 
-        <div className="text-xl font-semibold dark:text-amber-50">Loading</div>
-        :
-        <NotionRenderer
-          recordMap={recordMap}
-          components={{
-            Code,
-            Collection,
-            Equation,
-            Modal
-          }}
-          fullPage={true}
-          darkMode={darkMode}
-          disableHeader={true} />}
+        {recordMap === null ?
+          <div className="text-xl font-semibold dark:text-amber-50">Loading</div>
+          :
+          <NotionRenderer
+            recordMap={recordMap}
+            components={{
+              Code,
+              Collection,
+              Equation,
+              Modal
+            }}
+            fullPage={true}
+            darkMode={darkMode}
+            disableHeader={true} />}
       </div>
     </div>
   );
