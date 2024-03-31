@@ -10,8 +10,6 @@ export async function GET(req) {
     const data = await notion.getCollectionData(process.env.NOTION_COLLECTIONID,process.env.NOTION_COLLECTIONVIEWID)
 
     const blockMap = data.recordMap.block;
-    const collectionId = data.collectionIds[0];
-    const collection = data.recordMap.collection[collectionId];
 
     // Initialize an array to store the extracted data
     const extractedData = [];
