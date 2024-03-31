@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import "./../index.css"
 import "./../output.css"
+
 export default function Projects() {
     const [projects, setProjects] = useState([])
     useEffect(() => {

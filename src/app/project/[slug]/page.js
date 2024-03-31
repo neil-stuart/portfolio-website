@@ -2,7 +2,7 @@
 import "./page.css"
 import "./../../index.css"
 import "./../../output.css"
-import React, { use, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NotionRenderer } from 'react-notion-x';
 import { Within } from "@theme-toggles/react";
 import "@theme-toggles/react/css/Within.css";
@@ -16,6 +16,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 // used for rendering equations (optional)
 import 'katex/dist/katex.min.css'
 import dynamic from 'next/dynamic'
+
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then((m) => m.Code)
