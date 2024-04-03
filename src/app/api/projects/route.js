@@ -1,12 +1,15 @@
 import { NotionAPI } from 'notion-client'
 
-export async function GET(req) {
+
+export async function GET(request) {
+    headers = request.headers // Access request object to opt out of caching
+
     const notion = new NotionAPI({ 
         authToken: process.env.NOTION_TOKEN_V2,
         activeUser: process.env.NOTION_USERID
     })
     
-    const data = await notion.getCollectionData(process.env.NOTION_COLLECTIONID, process.env.NOTION_COLLECTIONVIEWID)
+    const data = await notion.getCollectionData(process.env.NOTION_COLLECTIONID,process.env.NOTION_COLLECTIONVIEWID)
 
     const blockMap = data.recordMap.block;
 
@@ -37,19 +40,8 @@ export async function GET(req) {
     });
 
     if (data === null) {
-        return new Response(JSON.stringify({ status: 404, body: { error: 'Not Found' } }), {
-            headers: {
-                'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache' // Opt out of caching
-            },
-            status: 404
-        });
+        return Response.json({ status: 404, body: { error: 'Not Found' } })
     }
 
-    return new Response(JSON.stringify({ body: extractedData }), {
-        headers: {
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache' // Opt out of caching
-        }
-    });
+    return Response.json({ body:extractedData })
 }
