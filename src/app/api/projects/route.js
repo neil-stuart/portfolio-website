@@ -2,7 +2,6 @@ import { NotionAPI } from 'notion-client'
 
 
 export async function GET(request) {
-    request // Access request object to opt out of caching
 
     const notion = new NotionAPI({ 
         authToken: process.env.NOTION_TOKEN_V2,
