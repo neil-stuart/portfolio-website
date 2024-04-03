@@ -1,7 +1,7 @@
 import { NotionAPI } from 'notion-client'
 
 
-export async function GET(request) {
+export async function POST(request) {
 
     const notion = new NotionAPI({ 
         authToken: process.env.NOTION_TOKEN_V2,

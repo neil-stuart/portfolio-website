@@ -519,7 +519,7 @@ export default function Index() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("/api/projects")
+    fetch("/api/projects",{method:"POST"})
       .then((response) => response.json())
       .then((data) => {
         setProjects(data.body);
