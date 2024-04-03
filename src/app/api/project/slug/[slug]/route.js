@@ -6,7 +6,6 @@ export async function GET(req, { params }) {
       activeUser: process.env.NOTION_USERID
   })
 
-  const slug = params.slug
   const data = await notion.getCollectionData(process.env.NOTION_COLLECTIONID,process.env.NOTION_COLLECTIONVIEWID)
 
   const blockMap = data.recordMap.block;
@@ -26,25 +25,19 @@ export async function GET(req, { params }) {
       const id = properties['|NBx'] ? properties['|NBx'][0][0] : '';
       if (!id) return; // Only return pages with an ID.
 
-      const title = properties.title ? properties.title[0][0] : '';
-
       const slug = properties['{{~J'] ? properties['{{~J'][0][0] : '';
 
-      const description = properties['kRtc'] ? properties['kRtc'][0][0] : '';
-
-      
       // Push extracted data into the array
-      extractedData.push({ id, title, slug, description });
+      extractedData.push({ id, slug});
   });
 
   if (data === null) {
       return Response.json({ status: 404, body: { error: 'Not Found' } })
   }
   
-  
 
   const id = extractedData.find(project => project.slug === params.slug).id
-  console.log(`ID: ${id}`)
+
   if (!id) {
       return Response.json({ status: 404, body: { error: 'Not Found' } })
   }
