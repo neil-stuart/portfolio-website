@@ -10,24 +10,9 @@ import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import {
-  SiC,
   SiGithub,
-  SiFlask,
-  SiHeroku,
-  SiJavascript,
-  SiMongodb,
-  SiMui,
-  SiMysql,
-  SiNextdotjs,
-  SiPython,
-  SiReact,
-  SiTailwindcss,
-  SiStyledcomponents,
-  SiHtml5,
-  SiCss3,
   SiLinkedin,
   SiGmail,
-  SiEyeem,
 } from "@icons-pack/react-simple-icons";
 
 
