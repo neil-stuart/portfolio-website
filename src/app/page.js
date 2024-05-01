@@ -144,7 +144,7 @@ const Info = () => {
 
   return (
     <div className="flex fixed bottom-0 flex-col items-center mb-4">
-    <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-md border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950">
+    <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-md border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
       <div className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center">
         <motion.div
         whileHover={{rotate:-10,scale:1.05}}
@@ -229,15 +229,7 @@ export default function Index() {
           >
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
             <FaceBanner/>
-            <div className="flex flex-col max-w-[45rem] w-full grow pb-8 px-6">
-            <div className="text-xl mb-2 font-semibold ">
-              Repositories 
-            </div>
-            <div className="flex flex-col gap-5 w-full ">
-              <div className="text-base opacity-95 w-fit dark:bg-green-900 bg-green-300 rounded-lg p-3 align-center ">No repositories to show!</div>
-            </div>
-            </div>
-
+            
             <div className="flex flex-col max-w-[45rem] w-full grow pb-8 px-6">
             <div className="text-xl mb-2 font-semibold ">
               Posts 🗞️
@@ -251,8 +243,18 @@ export default function Index() {
             </div>
             </div>
 
+            <div className="flex flex-col max-w-[45rem] w-full grow pb-8 px-6">
+            <div className="text-xl mb-2 font-semibold ">
+              Repositories 
+            </div>
+            <div className="flex flex-col gap-5 w-full ">
+              <div className="text-base opacity-95 w-fit dark:bg-green-900 bg-green-300 rounded-lg p-3 align-center ">No repositories to show!</div>
+            </div>
+            </div>
+
+
             <Info/>
-            
+            <div className="min-height-[8rem]"/>
           </div>
           <motion.div animate={{}} 
           drag="x"
