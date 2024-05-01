@@ -18,16 +18,15 @@ import {
 
 const Header = ({ darkMode, setDarkMode }) => {
   return (
-    <div className="flex mx-2 max-w-[45rem] w-[95%] sticky border border-stone-700 px-4 my-2 py-3 text-slate-50 rounded-xl flex-row bg-stone-900 dark:bg-stone-950 justify-between items-center">
-      <div className="flex flex-row gap-3 w-full justify-left items-center">
-          
-        <div className="text-xl ">Neil Stuart</div>{" "}
-      </div>
+    <div className="flex fixed m-6 max-w-[45rem] w-[95%]  flex-row  justify-between items-center">
+      <div />
+      <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center bg-opacity-20 backdrop-blur-md justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
       <Simple
-        className="text-[1.75rem]  sm:block"
+        className="text-[1.6rem] "
         toggled={darkMode}
         toggle={setDarkMode}
       />
+      </div>
     </div>
   );
 };
@@ -116,20 +115,20 @@ const Project = ({ title, slug, darkMode }) => {
 
 const FaceBanner = () => {
   return (
-    <div className="w-full max-w-[45rem] p-6 flex flex-col sm:flex-row  gap-4">
+    <div className="w-full max-w-[45rem] p-6 flex flex-col items-center sm:flex-row  gap-4">
     <div className="rounded-2xl w-fit h-fit border dark:border-stone-700 border-stone-800">
     <Image
       src={portrait}
-      width={120}
-      
-      height={120}
+      width={140}
+      height={140}
       className="rounded-2xl"
       alt="Picture of the author"
     />
     </div>
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1">
     <div className="text-2xl">Hello 👋</div>
-      <div className="font-semibold text-lg">Web Dev. 21</div>
+      <div className="font-semibold text-lg mb-2">Neil Stuart, 21.</div>
+      <div className="text-sm">I am working on:</div>
       <div className="text-base text-stone-900 dark:text-stone-200">
         <b>Start100</b> <i>University of Galway</i><br/>
         <b>CMOS Amplifier Design for Sensor Interfaces</b> <i>Tyndall Institute</i>
@@ -143,11 +142,9 @@ const FaceBanner = () => {
 
 const Info = () => {
 
-  const x = useMotionValue(0)
-  const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5])
   return (
-    <div className="flex flex-col items-center mb-4">
-    <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950">
+    <div className="flex fixed bottom-0 flex-col items-center mb-4">
+    <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-md border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950">
       <div className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center">
         <motion.div
         whileHover={{rotate:-10,scale:1.05}}
@@ -193,20 +190,15 @@ const Info = () => {
 
       
     </div>
-          <motion.div animate={{}} 
-          drag="x"
-          style={{ x, opacity }}
-          dragConstraints={{ left: -10, right: 10 }}
-          className="text-base text-stone-800 dark:text-stone-500">
-         © Neil Stuart 2024
-         
-        </motion.div>
+
     </div>
   );
 };
 
 export default function Index() {
-
+  const x = useMotionValue(0)
+  const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5])
+  
   const [darkMode, setDarkMode] = useState(true);
   const [projects, setProjects] = useState([]);
 
@@ -262,7 +254,16 @@ export default function Index() {
             <Info/>
             
           </div>
+          <motion.div animate={{}} 
+          drag="x"
+          style={{ x, opacity }}
+          dragConstraints={{ left: -10, right: 10 }}
+          className="text-base text-stone-800 dark:bg-stone-900 justify-center flex dark:text-stone-500">
+         © Neil Stuart 2024
+         
+        </motion.div>
         </div>
+
       </div>
     </div>
   );
