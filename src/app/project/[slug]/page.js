@@ -61,7 +61,7 @@ export default function Project({ params }) {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="min-h-screen font-mono flex flex-col items-center dark:bg-slate-950">
+      <div className="min-h-screen font-mono flex flex-col items-center dark:bg-stone-950">
         <div className="flex flex-row pt-20  max-w-[720px] w-full pb-16 px-4 items-left gap-8 justify-between">
           <Within
             className=" text-slate-950 dark:text-amber-50 text-[2.5rem] "
