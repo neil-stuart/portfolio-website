@@ -270,7 +270,7 @@ export default function Index() {
               :projects.map((project) => (
                 <Project darkMode={darkMode} slug={project.slug} key={project.id} title={project.title} />
               ))}
-              <Project darkMode={darkMode} slug={"Hey"} title={"Test Project for research purposes"}/>
+              {/* <Project darkMode={darkMode} slug={"Dev"} title={"Test Project for development purposes"}/> */}
             </div>
             </div>
 
