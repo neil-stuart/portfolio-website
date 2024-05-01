@@ -115,7 +115,7 @@ const Project = ({ title, slug, darkMode }) => {
 
 const FaceBanner = () => {
   return (
-    <div className="w-full max-w-[45rem] p-6 flex flex-col sm:items-center sm:flex-row  gap-4">
+    <div className="w-full max-w-[45rem] p-6 pb-8 flex flex-col sm:items-center sm:flex-row  gap-4">
     <div className="rounded-2xl w-fit h-fit border dark:border-stone-700 border-stone-800">
     <Image
       src={portrait}
@@ -143,7 +143,7 @@ const FaceBanner = () => {
 const Info = () => {
 
   return (
-    <div className="flex fixed bottom-0 flex-col items-center mb-4">
+    <div className="flex fixed bottom-0 flex-col z-20 items-center mb-4">
     <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-md border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
       <div className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center">
         <motion.div
@@ -254,7 +254,7 @@ export default function Index() {
 
 
             <Info/>
-            <div className="min-height-[8rem]"/>
+            <div className="min-h-[6rem]"/>
           </div>
           <motion.div animate={{}} 
           drag="x"
