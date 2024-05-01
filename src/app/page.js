@@ -2,12 +2,13 @@
 
 import "./index.css";
 import "./output.css";
-
+import portrait from "../pics/portrait.JPG"
 import { useEffect, useState } from "react";
-import "@theme-toggles/react/css/Within.css";
-import { Within } from "@theme-toggles/react";
+import "@theme-toggles/react/css/Simple.css";
+import { Simple } from "@theme-toggles/react";
 import React from "react";
-
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import Image from "next/image";
 import {
   SiC,
   SiGithub,
@@ -24,40 +25,20 @@ import {
   SiStyledcomponents,
   SiHtml5,
   SiCss3,
+  SiLinkedin,
+  SiGmail,
 } from "@icons-pack/react-simple-icons";
 
 
 const Header = ({ darkMode, setDarkMode }) => {
   return (
-    <div className="flex pb-4 p-4 mb-2 md:mx-0 md:px-1 flex-row w-full  border-b border-b-[0.12rem] border-slate-950 dark:border-amber-100 justify-between items-center">
-      <div className="flex flex-col gap-1 w-full justify-left">
-        <div className="text-slate-950 dark:text-amber-100 gap-3 md:items-end flex flex-col md:flex-row">
-          <div className="flex flex-row justify-between">
-            <div className="text-[1.15rem] font-bold">Neil Stuart</div>{" "}
-
-          </div>
-          <div className="bg-slate-950 hidden md:block dark:bg-amber-100 max-w-[0.1rem]">
-            &nbsp;
-          </div>
-          <div className="flex flex-row items-center gap-1 text-[0.6rem] md:text-sm grow font-bold">
-            <div className="text-[0.5rem] md:text-xs max-h-5 font-semibold bg-blue-500 text-slate-100 rounded-md p-[0.1rem] px-[0.2rem]">
-              BE
-            </div>
-            <div className="text-[0.5rem] md:text-xs max-h-5 font-semibold bg-red-500 text-slate-100 rounded-md p-[0.1rem] px-1">
-              ME
-            </div>
-            Electrical & Electronic Engineering
-          </div>
-        </div>
-        <div className="flex flex-row gap-2 text-[0.5rem] items-center">
-          <div className="w-4 h-4 bg-orange-500 rounded-full animate-pulse" />
-          <div className=" text-xs md:text-base font-bold dark:text-amber-100 text-slate-950">
-            University of Galway
-          </div>
-        </div>
+    <div className="flex mx-2 max-w-[45rem] w-[95%] sticky border border-stone-700 px-4 my-2 py-3 text-slate-50 rounded-xl flex-row bg-stone-900 dark:bg-stone-950 justify-between items-center">
+      <div className="flex flex-row gap-3 w-full justify-left items-center">
+          
+        <div className="text-xl ">Neil Stuart</div>{" "}
       </div>
-      <Within
-        className="text-[2rem] "
+      <Simple
+        className="text-[1.75rem]  sm:block"
         toggled={darkMode}
         toggle={setDarkMode}
       />
@@ -65,83 +46,6 @@ const Header = ({ darkMode, setDarkMode }) => {
   );
 };
 
-const UnderlineMoving = ({ selectedNavItem, hoveredNavItem }) => {
-  const [overlayHeight, setOverlayHeight] = useState("1rem");
-  const pos = hoveredNavItem
-    ? hoveredNavItem === "Projects"
-      ? "0.5rem"
-      : hoveredNavItem === "Skills"
-      ? "8.2rem"
-      : "14.7rem"
-    : selectedNavItem === "Projects"
-    ? "0.5rem"
-    : selectedNavItem === "Skills"
-    ? "8.2rem"
-    : "14.7rem";
-
-  const selectedPos =
-    selectedNavItem === "Projects"
-      ? "0.5rem"
-      : selectedNavItem === "Skills"
-      ? "8.2rem"
-      : "14.7rem";
-
-  const selectedWidth =
-    selectedNavItem === "Projects"
-      ? "3.8rem"
-      : selectedNavItem === "Skills"
-      ? "2.5rem"
-      : "3rem";
-
-  const width = hoveredNavItem
-    ? hoveredNavItem === "Projects"
-      ? "3.8rem"
-      : hoveredNavItem === "Skills"
-      ? "2.5rem"
-      : "3rem"
-    : selectedNavItem === "Projects"
-    ? "3.8rem"
-    : selectedNavItem === "Skills"
-    ? "2.5rem"
-    : "3rem";
-
-  useEffect(() => {
-    setOverlayHeight("0.4rem");
-    setTimeout(() => {
-      setOverlayHeight("0.9rem");
-    }, 400);
-  }, [selectedNavItem]);
-
-  return (
-    <div className="relative top-[-0.7rem] ">
-      <div
-        style={{
-          height: overlayHeight,
-          transition:
-            "height 0.2s ease-in-out 0s, left 0.4s cubic-bezier(0.37, 0.2, 0.32, 0.99), width 0.2s ease-in-out 0.15s ",
-          left: selectedPos,
-          width: selectedWidth,
-        }}
-        className="h-[1.3rem] top-[-1rem] absolute bg-orange-500 opacity-35 dark:opacity-55"
-      >
-        &nbsp;
-      </div>
-
-      <div
-        style={{
-          transition:
-            "left 0.4s cubic-bezier(0.37, 0.2, 0.32, 0.99), width 0.4s cubic-bezier(0.37, 0.2, 0.32, 0.99) 0s",
-          left: pos,
-          height: "0.15rem",
-          width: width,
-        }}
-        className="relative dark:bg-amber-100 bg-slate-950"
-      >
-        &nbsp;
-      </div>
-    </div>
-  );
-};
 
 const Project = ({ title, slug, darkMode }) => {
   const [hovered, setHovered] = useState(false);
@@ -228,294 +132,100 @@ const Project = ({ title, slug, darkMode }) => {
   );
 };
 
-const HoverCard = ({ children, text, width, wrap, index }) => {
-  const [hovered, setHovered] = useState(false);
-  const transitions =
-    "bottom 0.3s cubic-bezier(0.37, 0.2, 0.32, 0.99), opacity 0.3s cubic-bezier(0.37, 0.2, 0.32, 0.99)";
-
-  const [hidden, setHidden] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  const [animationTimeout, setAnimationTimeout] = useState(null);
-
-  useEffect(() => {
-    let timeout;
-    if (hovered) {
-      setHidden(false);
-      clearTimeout(animationTimeout); // Cancel previous timeout
-      timeout = setTimeout(() => setVisible(true), 100);
-    } else {
-      setVisible(false);
-      clearTimeout(animationTimeout); // Cancel previous timeout
-      timeout = setTimeout(() => setHidden(true), 350);
-    }
-    setAnimationTimeout(timeout); // Save the new timeout reference
-  }, [hovered]);
-
+const FaceBanner = () => {
   return (
-    <div key={index} className="relative">
-      {
-        <div
-          className=" absolute "
-          style={{
-            width: width,
-            transition: transitions,
-            left: "50%",
-            whiteSpace: wrap === false ? "nowrap" : "wrap",
-            bottom: visible ? "2.2rem" : "1rem",
-            opacity: visible ? 1 : 0,
-            display: hidden ? "none" : "",
-          }}
-        >
-          <div
-            className="bg-slate-950  p-3 text-sm text-amber-200 h-fit  rounded-xl"
-            style={{ position: "relative", left: "-50%" }}
-          >
-            {text}
-          </div>
-        </div>
-      }
-      <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        className="relative"
-      >
-        {children}
+    <div className="w-full max-w-[45rem] p-6 flex flex-col sm:flex-row  gap-4">
+    <div className="rounded-2xl w-fit h-fit border dark:border-stone-700 border-stone-800">
+    <Image
+      src={portrait}
+      width={120}
+      
+      height={120}
+      className="rounded-2xl"
+      alt="Picture of the author"
+    />
+    </div>
+    <div className="flex flex-col gap-2">
+    <div className="text-2xl">Hello 👋</div>
+      <div className="font-semibold text-lg">Web Dev. 21</div>
+      <div className="text-base text-stone-900 dark:text-stone-200">
+        <b>Start100</b> <i>University of Galway</i><br/>
+        <b>CMOS Amplifier Design for Sensor Interfaces</b> <i>Tyndall Institute</i>
+      
       </div>
     </div>
-  );
-};
-
-const Skills = ({ darkMode }) => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const transitions = "transform 0.3s ease-in-out";
-
-  const circDist = (index) => {
-    let b = hoveredIndex;
-    let a = index;
-    let n = 14;
-    return (
-      Math.abs(1 - Math.abs(((b - a) % n) - ((a - b) % n)) / n) + 0.48
-    ).toFixed(2);
-  };
-
-  const icons = [
-    <SiJavascript size={20} />,
-    <SiC size={20} />,
-    <SiPython size={20} />,
-    <SiHtml5 size={20} />,
-    <SiCss3 size={20} />,
-    <SiMongodb size={20} />,
-    <SiMysql size={20} />,
-    <SiFlask size={20} />,
-    <SiReact size={20} />,
-    <SiNextdotjs size={20} />,
-    <SiTailwindcss size={20} />,
-    <SiMui size={20} />,
-    <SiStyledcomponents size={20} />,
-    <SiHeroku size={20} />,
-    <SiGithub size={20} />,
-  ];
-
-  const iconNames = [
-    "JavaScript",
-    "C",
-    "Python",
-    "HTML5",
-    "CSS3",
-    "MongoDB",
-    "MySQL",
-    "Flask",
-    "React",
-    "Next.js",
-    "Tailwind CSS",
-    "Material-UI",
-    "Styled Components",
-    "Heroku",
-    "GitHub",
-  ];
-
-  const iconLinks = [
-    "https://www.javascript.com",
-    "https://www.cprogramming.com",
-    "https://www.python.org",
-    "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    "https://www.mongodb.com",
-    "https://www.mysql.com",
-    "https://flask.palletsprojects.com/en",
-    "https://reactjs.org",
-    "https://nextjs.org",
-    "https://tailwindcss.com",
-    "https://mui.com",
-    "https://styled-components.com",
-    "https://www.heroku.com",
-    "https://github.com",
-  ];
-
-  const ElectricalandElectronicSkills = [
-    {
-      name: "LTSpice",
-      text: "Worked with LTSpice in 2nd and 3rd year of college. Used to simulate frequency response of filters and amplifiers.",
-    },
-    {
-      name: "PCB (KiCad)",
-      text: "Used KiCad to design PCBs for projects in 2nd and 3rd year of college.",
-    },
-    {
-      name: "Analogue Design",
-      text: "Learned about analogue design in 2nd year of college. Projects included designing BJT and MOSFET amplifiers. Designed filters in 3rd year of college.",
-    },
-    {
-      name: "Digital Design (VHDL)",
-      text: "Created a VHDL implementation of a level 1 RISC-V processor in 3rd year of college, using Vivado.",
-    },
-  ];
-
-  return (
-    <div className="flex flex-col grow items-center  w-full px-2">
-      <div className="grid grid-cols-1 md:grid-cols-2  grid-rows-1 flex-grow text-left gap-5 md:gap-1">
-        <div className="">
-          <h1 className="pb-2 text-lg text-slate-950 dark:text-amber-100 font-bold font-mono">
-            Web Dev & Software
-          </h1>
-          <div className="flex flex-row justify-left w-[80%] flex-wrap gap-5 items-center">
-            {icons.map((icon, index) => (
-              <a href={iconLinks[index]} key={index}>
-                <HoverCard width="fit" wrap={false} text={iconNames[index]}>
-                  {React.cloneElement(icon, {
-                    color: darkMode
-                      ? "rgb(254 243 199 / var(--tw-text-opacity))"
-                      : "rgb(2 6 23 / var(--tw-bg-opacity)",
-                    onMouseEnter: () => setHoveredIndex(index),
-                    onMouseLeave: () => setHoveredIndex(-1),
-                    style: {
-                      transition: transitions,
-                      transform:
-                        "scale(" +
-                        (hoveredIndex !== -1 ? circDist(index) : "1") +
-                        ")",
-                    },
-                    title: "",
-                  })}
-                </HoverCard>
-              </a>
-            ))}
-          </div>
-        </div>
-        <div className="z-10">
-          <h1 className="pb-2 text-lg text-slate-950 dark:text-amber-100 font-bold font-mono">
-            Electrical & Electronic Skills
-          </h1>
-          <div className="flex flex-row flex-wrap gap-5">
-            {ElectricalandElectronicSkills.map((skill, index) => (
-              <HoverCard key={index} width="12rem" text={skill.text}>
-                <div className="text-sm p-[0.3rem] hover:scale-90 transition-all duration-300  font-semibold border border-emerald-700 rounded-lg">
-                  {skill.name}
-                </div>
-              </HoverCard>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
-  );
-};
+  )
+}
+
 
 const Info = () => {
+
+  const x = useMotionValue(0)
+  const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5])
   return (
-    <div className="h-full w-full md:w-[47%] md:rounded-2xl md:rounded-l-none px-5 py-3 font-bold text-lg text-amber-50 dark:border-yellow-100 dark:border-y dark:border-r dark:border-opacity-45 bg-slate-950">
-      Info
-      <p className="text-xs mt-2 text-yellow-50 text-right"> Here's my CV</p>
-      <div className=" text-yellow-200 text-sm text-right pt-2">
-        <a href="CV2023.pdf">CV</a>
+    <div className="flex flex-col items-center mb-4">
+    <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950">
+      <div className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center">
+        <motion.div
+        whileHover={{rotate:-10,scale:1.05}}
+        onClick={()=>window.location.href = "CV2023.pdf"} 
+        className="border border-yellow-600 dark:border-yellow-200 duration-[0.3s] dark:hover:bg-yellow-900 hover:bg-yellow-200 dark:text-yellow-200 text-yellow-600 hover:cursor-pointer p-3 w-12 h-13 text-base rounded-lg">
+          CV
+        </motion.div>
+
+        <motion.div
+        whileHover={{rotate:10,scale:1.05}}
+        onClick={()=>window.location.href = "mailto:neil.stuart11@gmail.com"} 
+        className="border duration-[0.3s] hover:bg-purple-900 hover:cursor-pointer dark:border-purple-400 border-purple-900 p-3 w-12 h-13 text-base text-purple-400 rounded-lg">
+          <SiGmail/>
+        </motion.div>
+
+        <motion.div 
+        whileHover={{rotate:-10,scale:1.05}}
+        onClick={()=>window.location.href = "https://neilstu.art/"} 
+        
+        className="border duration-[0.3s] hover:bg-blue-900 hover:cursor-pointer p-3  w-12 h-13 text-base  border-blue-400 rounded-lg">
+        
+          <div className="w-6 h-6 rounded-full bg-blue-400"/>
+        </motion.div>
+
+        <motion.div 
+        whileHover={{rotate:10,scale:1.05}}
+        onClick={()=>window.location.href = "https://www.linkedin.com/in/neil-stuart-44705525b/"} 
+        
+        className="border duration-[0.3s] dark:hover:bg-cyan-900 hover:bg-cyan-200  hover:cursor-pointer dark:text-cyan-300 text-cyan-500 dark:border-cyan-300 border-cyan-500 p-3 w-12 h-13 text-base rounded-lg">
+        
+        
+          <SiLinkedin/>
+        </motion.div>
+      
+        <motion.div  
+        whileHover={{rotate:-10,scale:1.05}}
+        onClick={()=>window.location.href = "https://github.com/neil-stuart"} 
+        
+        className="border duration-[0.3s] hover:bg-emerald-900 hover:cursor-pointer  text-emerald-400 border-emerald-400 p-3 w-12 h-13 text-base rounded-lg">
+          <SiGithub/>
+        </motion.div>
       </div>
-      <p className="text-xs mt-2 text-yellow-50 text-right">
-        {" "}
-        You can contact me at
-      </p>
-      <div className="text-orange-100  text-sm text-right pt-2">
-        <a href="mailto:neil.stuart11@gmail.com">
-          neil.stuart11@gmail.com - email
-        </a>
-      </div>
-      <div className="text-orange-200  text-sm text-right pt-4">
-        <a href="https://neilstu.art/">neilstu.art - website</a>
-      </div>
-      <div className="text-orange-300  text-sm text-right pt-4">
-        <a href={"https://www.linkedin.com/in/neil-stuart-44705525b/"}>
-          Neil Stuart - linkedin
-        </a>
-      </div>
-      <div className="text-orange-400  text-sm text-right pt-4 ">
-        <a href={"https://github.com/neil-stuart"}>neil-stuart - github</a>
-      </div>
+
+      
     </div>
-  );
-};
-
-const Results = () => {
-  useEffect(() => {
-    fetch("/api/results")
-      .then((res) => res.json())
-      .then((data) => setResults(data.body));
-
-  }, []);
-  
-  const [results, setResults] = useState([]);
-  return (
-    <div className="h-full w-full md:w-[53%] md:rounded-2xl md:border-b md:border-b-0 md:rounded-tr-none  px-5 py-3 pb-8 font-bold text-md border-t dark:border-yellow-100 dark:border-opacity-45 border-slate-950">
-      Results
-      <div className="flex flex-col gap-2 h-60 md:h-full overflow-scroll scrollbar-hide mt-2">
-        <div className="flex flex-row gap-2 items-center">
-          <div className="text-sm font-bold text-slate-900 dark:text-yellow-100">
-            2nd Year
-          </div>
-        </div>
-        {results
-          .filter((result) => result.year === 2)
-          .map((result, index) => (
-            <div key={index} className="flex flex-row justify-between border-b border-slate-700 dark:border-yellow-100 dark:border-opacity-45  pb-3 mx-4 items-center">
-              <div className="text-sm font-mono font-semibold text-slate-950 dark:text-yellow-100">
-                {result.name}
-              </div>
-              <div className="text-sm font-semibold text-yellow-50 p-1 rounded-lg bg-emerald-500">
-                {result.result}
-              </div>
-            </div>
-          ))}
-        <div className="flex flex-row gap-2 items-center">
-          <div className="text-sm font-bold text-slate-900 dark:text-yellow-100">
-            1st Year
-          </div>
-        </div>
-        {results
-          .filter((result) => result.year === 1)
-          .map((result, index) => (
-            <div key={index} className="flex flex-row justify-between border-b border-slate-700 dark:border-yellow-100 dark:border-opacity-45    pb-3 mx-4 items-center">
-              <div className="text-sm font-mono font-semibold text-slate-950 dark:text-yellow-100">
-                {result.name}
-              </div>
-              <div className="text-sm font-semibold text-yellow-50 p-1 rounded-lg bg-emerald-500">
-                {result.result}
-              </div>
-            </div>
-          ))}
-      </div>
+          <motion.div animate={{}} 
+          drag="x"
+          style={{ x, opacity }}
+          dragConstraints={{ left: -10, right: 10 }}
+          className="text-base text-stone-800 dark:text-stone-500">
+         © Neil Stuart 2024
+         
+        </motion.div>
     </div>
   );
 };
 
 export default function Index() {
-  const [selectedNavItem, setSelectedNavItem] = useState("Projects");
-  const [hoveredNavItem, setHoveredNavItem] = useState(selectedNavItem);
 
   const [darkMode, setDarkMode] = useState(false);
-  const aboutMe =
-    " I am a 3rd year Electrical & Electronic Engineering student at University of Galway, currently looking for a summer-internship or co-op placement in 2024/25."
-  const aboutMe2 = "I have a strong interest in analogue & digital electronics and I have experience with LTSpice, KiCad, VHDL and Vivado. I am a hard-working, self-motivated and enthusiastic individual who is eager to learn and develop new skills";
-
-
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -528,77 +238,46 @@ export default function Index() {
         console.error("Error fetching projects:", error);
       });
   }, []);
+
+
   return (
     <div className={darkMode ? "dark" : ""}>
       <div
         className={
-          "bg-slate-950 dark:text-amber-100  select-none flex overflow-hidden max-w-screen w-screen min-h-screen justify-center "
+          "flex max-w-screen w-screen min-h-screen select-none "
         }
       >
-        <div className="flex flex-col items-center md:max-w-[850px] md:p-10 md:overflow-hidden md:max-h-screen grow align-start ">
+        <div className="flex flex-col  md:overflow-hidden md:max-h-screen grow">
           <div
             className={
-              "md:p-8 items-start w-full md:rounded-2xl flex grow flex-col dark:border border-opacity-30 border-yellow-100  md:max-h-[88vh] bg-slate-50  dark:bg-slate-900"
+              "flex grow items-center text-slate-950 dark:text-slate-50  flex-col bg-stone-100 dark:bg-stone-900"
             }
           >
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-
-            <div className="flex md:px-0 z-10 flex-col">
-              <div className="flex font-bold px-2 h-fit py-2 content-start flex-row gap-16">
-                <div
-                  className="font-underline cursor-pointer"
-                  onClick={() => setSelectedNavItem("Projects")}
-                  onMouseEnter={() => setHoveredNavItem("Projects")}
-                  onMouseLeave={() => setHoveredNavItem(null)}
-                >
-                  Projects
-                </div>
-                <div
-                  className="font-underline cursor-pointer "
-                  onClick={() => setSelectedNavItem("Skills")}
-                  onMouseEnter={() => setHoveredNavItem("Skills")}
-                  onMouseLeave={() => setHoveredNavItem(null)}
-                >
-                  Skills
-                </div>
-                <div
-                  className="font-underline cursor-pointer"
-                  onClick={() => setSelectedNavItem("About")}
-                  onMouseEnter={() => setHoveredNavItem("About")}
-                  onMouseLeave={() => setHoveredNavItem(null)}
-                >
-                  About
-                </div>
-              </div>
+            <FaceBanner/>
+            <div className="flex flex-col max-w-[45rem] w-full grow pb-8 px-6">
+            <div className="text-xl mb-2 font-semibold ">
+              Repositories 
+            </div>
+            <div className="flex flex-col gap-5 w-full ">
+              <div className="text-base opacity-95 w-fit dark:bg-green-900 bg-green-300 rounded-lg p-3 align-center ">No repositories to show!</div>
+            </div>
             </div>
 
-            <UnderlineMoving
-              hoveredNavItem={hoveredNavItem}
-              selectedNavItem={selectedNavItem}
-            />
-            {selectedNavItem === "Projects" && (
-              <div className="grid grid-flow-row items-start grid-cols-1 md:grid-cols-2 grow scrollbar-hide overflow-y-scroll mb-3 gap-5 w-full px-2 pt-3">
-                {projects.length === 0 ? (<div className="text-md align-center font-semibold">No projects posted yet...</div>)
-                :projects.map((project) => (
-                  <Project darkMode={darkMode} slug={project.slug} key={project.id} title={project.title} />
-                ))}
-              </div>
-            )}
-
-            {selectedNavItem === "Skills" && <Skills darkMode={darkMode} />}
-
-            {selectedNavItem === "About" && (
-              <div className="grow font-semibold md:w-1/2 pb-16 md:pb-0 md:pl-8  pt-8 flex flex-row text-sm">
-                {aboutMe}
-                {/* <br/>
-                <br/>
-                {aboutMe2} */}
-              </div>
-            )}
-            <div className="flex flex-col md:flex-row pt-4 gap-5 md:gap-0 w-full md:h-72">
-              <Results />
-              <Info />
+            <div className="flex flex-col max-w-[45rem] w-full grow pb-8 px-6">
+            <div className="text-xl mb-2 font-semibold ">
+              Posts 🗞️
             </div>
+            <div className="grid grid-flow-row items-start grid-cols-1 md:grid-cols-2  scrollbar-hide overflow-y-scroll  gap-5 w-full ">
+              {projects.length === 0 ? (<div className="text-base opacity-95 w-fit dark:bg-yellow-900 bg-yellow-300 rounded-lg p-3 align-center ">Nothing posted yet.</div>)
+              :projects.map((project) => (
+                <Project darkMode={darkMode} slug={project.slug} key={project.id} title={project.title} />
+              ))}
+            </div>
+            </div>
+
+            <Info/>
+            
           </div>
         </div>
       </div>

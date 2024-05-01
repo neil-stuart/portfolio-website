@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@theme-toggles/react": "^4.1.0",
+    "framer-motion": "^11.1.7",
     "katex": "^0.16.9",
     "marked": "^11.1.0",
     "mongodb": "^6.5.0",
