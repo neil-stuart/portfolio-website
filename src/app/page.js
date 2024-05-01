@@ -115,7 +115,7 @@ const Project = ({ title, slug, darkMode }) => {
 
 const FaceBanner = () => {
   return (
-    <div className="w-full max-w-[45rem] p-6 flex flex-col items-center sm:flex-row  gap-4">
+    <div className="w-full max-w-[45rem] p-6 flex flex-col sm:items-center sm:flex-row  gap-4">
     <div className="rounded-2xl w-fit h-fit border dark:border-stone-700 border-stone-800">
     <Image
       src={portrait}

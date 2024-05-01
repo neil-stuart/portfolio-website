@@ -1364,6 +1364,10 @@ code {
   .sm\:flex-row {
     flex-direction: row;
   }
+
+  .sm\:items-center {
+    align-items: center;
+  }
 }
 
 @media (min-width: 768px) {
