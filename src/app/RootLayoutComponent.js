@@ -71,7 +71,7 @@ const FaceBanner = () => {
 const Info = ({ darkMode, setDarkMode }) => {
   const pathname = usePathname();
   return (
-    <div className="flex fixed bottom-0 flex-col z-20 items-center mb-4">
+    <>
       <AnimatePresence mode="wait">
         {pathname === "/" && (
           <motion.div
@@ -80,7 +80,7 @@ const Info = ({ darkMode, setDarkMode }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10}}
             transition={{ duration: 0.2 }}
-            className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center"
+            className="flex fixed bottom-0 z-20 mb-4 flex-row gap-3 text-yellow-200 items-center justify-items-center"
           >
             <div className="h-fit max-w-fit w-fit flex flex-row items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-sm border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
               <motion.div
@@ -149,9 +149,9 @@ const Info = ({ darkMode, setDarkMode }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center"
+            className="flex fixed bottom-0 z-20 items-center mb-4 flex-row gap-3 text-yellow-200 justify-items-center"
           >
-            <div className="h-fit max-w-fit w-fit flex flex-row items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-sm border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
+            <div className="h-fit max-w-fit w-fit flex flex-row items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-sm border border-stone-700 text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
               <motion.div
                 key="Home"
                 whileHover={{ rotate: 10, scale: 1.05 }}
@@ -180,7 +180,7 @@ const Info = ({ darkMode, setDarkMode }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
 

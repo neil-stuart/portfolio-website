@@ -13,12 +13,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
           <NextTopLoader 
-            color="#2299DD"
+            color="#a8a29e"
             initialPosition={0.2}
             crawlSpeed={300}
             height={3}
             crawl={true}
-            showSpinner={true}
+            showSpinner={false}
             easing="ease"
             speed={300}
           />
