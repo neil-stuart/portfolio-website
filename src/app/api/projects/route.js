@@ -11,7 +11,6 @@ export async function POST(request) {
     const data = await notion.getCollectionData(process.env.NOTION_COLLECTIONID,process.env.NOTION_COLLECTIONVIEWID)
 
     const blockMap = data.recordMap.block;
-
     // Initialize an array to store the extracted data
     const extractedData = [];
 

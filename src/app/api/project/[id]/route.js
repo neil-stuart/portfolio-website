@@ -3,6 +3,7 @@ import { NotionAPI } from 'notion-client'
 
 export async function GET(req, { params }) {
     const id = params.id
+    
     const notion = new NotionAPI({ 
         authToken: process.env.NOTION_TOKEN_V2,
         activeUser: process.env.NOTION_USERID
