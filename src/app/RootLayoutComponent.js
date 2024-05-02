@@ -141,7 +141,12 @@ const Info = ({ darkMode, setDarkMode }) => {
             ) :(
               <>
                 {" "}
-                <Link href="/" className="dark:text-blue-200 cursor-pointer text-blue-900 bg-blue-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-blue-600 dark:border-stone-500 px-3 py-3 rounded-xl dark:bg-blue-800">
+                <motion.div
+                key="Home"
+                  whileHover={{ rotate: 10, scale: 1.05 }}
+                  className="dark:text-blue-200 cursor-pointer text-blue-900 bg-blue-200  duration-[0.1s] dark:hover:bg-blue-700 dark:hover:bg-opacity-20 hover:bg-blue-600 hover:bg-opacity-20 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-blue-600 dark:border-stone-500 px-3 py-3 rounded-xl dark:bg-blue-800">
+                <Link href="/" >
+
                   <SiGooglehome
                   title="Home"
                     className="text-[1.6rem] "
@@ -149,14 +154,23 @@ const Info = ({ darkMode, setDarkMode }) => {
                       window.location.href = "/";
                     }}
                   />
+
                 </Link>
-                <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-800">
+                </motion.div>
+                <motion.div
+                key="ThemeToggle"
+                  whileHover={{ scale: 1.05 }}>
+                <div className="dark:text-stone-50 text-stone-900 bg-stone-200 duration-[0.3s] flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-800">
+                  
+
                   <Simple
                     className="text-[1.6rem] "
                     toggled={darkMode}
                     toggle={setDarkMode}
                   />
+
                 </div>
+                </motion.div>
               </>
             )}
 
