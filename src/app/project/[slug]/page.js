@@ -12,7 +12,7 @@ import "@theme-toggles/react/css/Simple.css";
 import "./page.css"
 import "./../../index.css"
 import "./../../output.css"
-
+import { useData } from "../../components/DataContext";
 // Dynamically import components
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then((m) => m.Code)
@@ -30,22 +30,31 @@ const Modal = dynamic(
 
 // Define the Project component
 export default function Project({ params }) {
-  const [recordMap, setRecordMap] = useState();
-  const projectID = useRef("");
-  const [darkMode, setDarkMode] = useState(true);
+  const { projectsData, setProjectsData } = useData();
 
   useEffect(() => {
-    fetch(`/api/project/slug/${params.slug}`).then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+    const fetchData = async () => {
+      try {
+        // Check if data is already present at params.slug
+        if (projectsData && params.slug in projectsData) {
+          return;
+        }
+  
+        const response = await fetch(`/api/project/slug/${params.slug}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        setProjectsData({ ...projectsData, [params.slug]: data.recordMap });
+      } catch (error) {
+        console.error("Error fetching project: ", error);
       }
-      return response.json();
-    }).then((data) => {
-      setRecordMap(data.recordMap);
-    }).catch((error) => {
-      console.error("Error fetching project: ", error);
-    })
-  }, [params.slug]);
+    };
+  
+    fetchData();
+  }, [params.slug, projectsData]);
+  
 
   return (
 
@@ -53,7 +62,7 @@ export default function Project({ params }) {
        
         <div className="mt-10 px-3">
           <AnimatePresence mode="wait">
-            {!recordMap ? (
+            {!projectsData || !(params.slug in projectsData) ? (
               <motion.div
                 key="loading"
                 initial={{ opacity: 0 }}
@@ -72,7 +81,7 @@ export default function Project({ params }) {
                 transition={{ duration: 0.5 }}
               >
                 <NotionRenderer
-                  recordMap={recordMap}
+                  recordMap={projectsData[params.slug]}
                   components={{
                     Code,
                     Collection,

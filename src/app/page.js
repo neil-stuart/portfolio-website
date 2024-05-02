@@ -98,11 +98,11 @@ export default function Page({}) {
       // Fetch data from the server
       const response = await fetch('/api/projects', { method: "POST"});
       const data = await response.json();
-      setProjectsData(data.body);
+      setProjectsData({...projectsData, meta: data.body});
     };
 
     // Fetch data only if it's not already fetched
-    if (!projectsData) {
+    if (!projectsData || !("meta" in projectsData)) {
       fetchData();
     }
   }, [projectsData, setProjectsData]);
@@ -115,12 +115,12 @@ export default function Page({}) {
       <div className="flex flex-col max-w-[45rem] w-full pb-8 px-6">
         <div className="text-xl mb-2 font-semibold ">Posts 🗞️</div>
         <div className="grid grid-flow-row items-start grid-cols-1 sm:grid-cols-2  scrollbar-hide   gap-5 w-full ">
-          {!projectsData ? (
+          {!projectsData || !("meta" in projectsData) ? (
             <div className="text-base opacity-95 w-fit dark:bg-yellow-900 bg-yellow-300 rounded-lg p-3 align-center ">
               Nothing posted yet.
             </div>
           ) : (
-            projectsData.map((project) => (
+            projectsData.meta.map((project) => (
               <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
