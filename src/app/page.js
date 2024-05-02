@@ -190,23 +190,13 @@ const Info = () => {
   );
 };
 
-export default function Index() {
+export default function Page({projects}) {
   const x = useMotionValue(0);
   const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5]);
 
   const [darkMode, setDarkMode] = useState(true);
-  const [projects, setProjects] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/projects", { method: "POST" })
-      .then((response) => response.json())
-      .then((data) => {
-        setProjects(data.body);
-      })
-      .catch((error) => {
-        console.error("Error fetching projects:", error);
-      });
-  }, []);
+
 
   return (
     <div className={darkMode ? "dark flex w-screen" : "flex w-screen"}>
@@ -269,4 +259,18 @@ export default function Index() {
     </div>
     </div>
   );
+}
+// This gets called on every request
+export async function getServerSideProps() {
+
+  const projects = fetch("/api/projects", { method: "POST" })
+  .then((response) => response.json())
+  .then((data) => {
+    setProjects(data.body);
+  })
+  .catch((error) => {
+    console.error("Error fetching projects:", error);
+  });
+  // Pass data to the page via props
+  return { props: { projects } }
 }
