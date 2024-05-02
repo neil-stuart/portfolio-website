@@ -64,22 +64,25 @@ export default function Project({ params }) {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="min-h-screen flex flex-col items-center dark:bg-stone-950">
-
-        <div className="flex fixed bottom-0 m-6 z-30 max-w-[45rem] w-[95%]  flex-row  justify-left gap-5 items-center">
-          <div className="dark:text-stone-50 cursor-pointer text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
+      <div className="min-h-screen flex flex-col items-center dark:bg-stone-900">
+      <div className="flex fixed bottom-0 flex-col z-20 items-center mb-4">
+      <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-sm border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
+      <div className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center">
+          <div className="dark:text-blue-200 cursor-pointer text-blue-900 bg-blue-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-blue-600 dark:border-stone-500 px-3 py-3 rounded-xl dark:bg-blue-800">
             <SiGooglehome
               className="text-[1.6rem] "
               onClick={() => { window.location.href = "/" }}
             />
           </div>
-          <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
+          <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-800">
             <Simple
               className="text-[1.6rem] "
               toggled={darkMode}
               toggle={setDarkMode}
             />
-          </div>
+        </div>
+        </div>
+        </div>
         </div>
         {/* <div className="max-w-[45rem] pt-6 w-[95%] flex-row">
           <div className="flex flex-row w-fit gap-4">
@@ -88,7 +91,7 @@ export default function Project({ params }) {
             </div>
           </div>
         </div> */}
-        <div className="mt-10">
+        <div className="mt-10 px-3">
         {!recordMap ?
           <div className="text-xl h-[90vh] flex items-center font-semibold dark:text-amber-50">Please wait a moment...</div>
           :
