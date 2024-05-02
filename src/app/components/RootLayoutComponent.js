@@ -9,13 +9,12 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import { SiGithub, SiLinkedin, SiGmail } from "@icons-pack/react-simple-icons";
-import { Router } from "next/router";
 
 import "@theme-toggles/react/css/Simple.css";
 import { Simple } from "@theme-toggles/react";
 
 import { SiGooglehome } from "@icons-pack/react-simple-icons";
-import portrait from "../pics/portrait.JPG";
+import portrait from "../../pics/portrait.JPG";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -161,9 +160,6 @@ const Info = ({ darkMode, setDarkMode }) => {
                   <SiGooglehome
                     title="Home"
                     className="text-[1.6rem] "
-                    onClick={() => {
-                      window.location.href = "/";
-                    }}
                   />
                 </Link>
               </motion.div>

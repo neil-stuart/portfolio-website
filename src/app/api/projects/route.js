@@ -1,3 +1,4 @@
+import { NextResponse } from 'next/server';
 import { NotionAPI } from 'notion-client'
 
 
@@ -38,8 +39,8 @@ export async function POST(request) {
     });
 
     if (data === null) {
-        return Response.json({ status: 404, body: { error: 'Not Found' } })
+        return NextResponse.json({ status: 404, body: { error: 'Not Found' } })
     }
 
-    return Response.json({ body:extractedData })
+    return NextResponse.json({ body:extractedData })
 }

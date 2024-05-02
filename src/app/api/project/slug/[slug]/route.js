@@ -1,3 +1,4 @@
+import { NextResponse } from 'next/server';
 import { NotionAPI } from 'notion-client'
 
 export async function GET(req, { params }) {
@@ -32,21 +33,21 @@ export async function GET(req, { params }) {
   });
 
   if (data === null) {
-      return Response.json({ status: 404, body: { error: 'Not Found' } })
+      return NextResponse.json({ status: 404, body: { error: 'Not Found' } })
   }
   
 
   const id = extractedData.find(project => project.slug === params.slug).id
 
   if (!id) {
-      return Response.json({ status: 404, body: { error: 'Not Found' } })
+      return NextResponse.json({ status: 404, body: { error: 'Not Found' } })
   }
   
   const recordMap = await notion.getPage(id)
   
   if (recordMap === null) {
-      return Response.json({ status: 404, body: { error: 'Not Found' } })
+      return NextResponse.json({ status: 404, body: { error: 'Not Found' } })
   }
 
-  return Response.json({ recordMap })
+  return NextResponse.json({ recordMap })
 }
