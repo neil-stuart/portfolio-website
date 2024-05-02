@@ -9,6 +9,10 @@
   background-color: transparent !important;
 }
 
+.notion-title {
+  font-size:2.3em !important;
+}
+
 .notion-page {
   width: auto !important;
   max-width: var(--notion-max-width) !important;

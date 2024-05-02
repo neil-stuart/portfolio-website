@@ -9,6 +9,9 @@ import 'prismjs/themes/prism-tomorrow.css'
 import 'katex/dist/katex.min.css'
 import dynamic from 'next/dynamic'
 import "@theme-toggles/react/css/Simple.css";
+import "./page.css"
+import "./../../index.css"
+import "./../../output.css"
 import { Simple } from "@theme-toggles/react";
 import { SiGooglehome } from "@icons-pack/react-simple-icons";
 
