@@ -71,7 +71,7 @@ export default function Project({ params }) {
             </div>
           </div>
         </div>
-        <div className="mt-10 px-3">
+        <div className="mt-10 px-3  flex items-center">
           <AnimatePresence>
             {!recordMap ? (
               <motion.div
@@ -80,7 +80,7 @@ export default function Project({ params }) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-xl h-[90vh] flex items-center font-semibold dark:text-amber-50"
+                className="text-xl h-[90vh] font-semibold dark:text-amber-50"
               >
                 Please wait a moment...
               </motion.div>
