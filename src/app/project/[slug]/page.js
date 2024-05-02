@@ -17,6 +17,9 @@ import 'prismjs/themes/prism-tomorrow.css'
 import 'katex/dist/katex.min.css'
 import dynamic from 'next/dynamic'
 
+import "@theme-toggles/react/css/Simple.css";
+import { Simple } from "@theme-toggles/react";
+import { SiGooglehome } from "@icons-pack/react-simple-icons";
 
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then((m) => m.Code)
@@ -61,27 +64,33 @@ export default function Project({ params }) {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="min-h-screen font-mono flex flex-col items-center dark:bg-stone-950">
-        <div className="flex flex-row pt-20  max-w-[720px] w-full pb-16 px-4 items-left gap-8 justify-between">
-          <Within
-            className=" text-slate-950 dark:text-amber-50 text-[2.5rem] "
-            toggled={darkMode}
-            toggle={setDarkMode}
-          />
+      <div className="min-h-screen flex flex-col items-center dark:bg-stone-950">
 
-          <h1 className="text-lg xs:text-xl font-semibold flex flex-row items-center gap-8 dark:text-amber-50">
-
-            <div onClick={() => { window.location.href = "/" }} className="bg-slate-950 dark:bg-amber-50 cursor-pointer  rounded-full w-8 h-8" />
-
-
-          </h1>
-
-
-
+        <div className="flex fixed bottom-0 m-6 z-30 max-w-[45rem] w-[95%]  flex-row  justify-left gap-5 items-center">
+          <div className="dark:text-stone-50 cursor-pointer text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
+            <SiGooglehome
+              className="text-[1.6rem] "
+              onClick={() => { window.location.href = "/" }}
+            />
+          </div>
+          <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-40 bg-opacity-40 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
+            <Simple
+              className="text-[1.6rem] "
+              toggled={darkMode}
+              toggle={setDarkMode}
+            />
+          </div>
         </div>
-
-        {recordMap === null ?
-          <div className="text-xl font-semibold dark:text-amber-50">Loading</div>
+        {/* <div className="max-w-[45rem] pt-6 w-[95%] flex-row">
+          <div className="flex flex-row w-fit gap-4">
+            <div className="border p-2 border-stone-400 rounded-xl text-sm text-stone-50 bg-emerald-800">
+                Socials
+            </div>
+          </div>
+        </div> */}
+        <div className="mt-10">
+        {!recordMap ?
+          <div className="text-xl h-[90vh] flex items-center font-semibold dark:text-amber-50">Please wait a moment...</div>
           :
           <NotionRenderer
             recordMap={recordMap}
@@ -94,6 +103,7 @@ export default function Project({ params }) {
             fullPage={true}
             darkMode={darkMode}
             disableHeader={true} />}
+            </div>
       </div>
     </div>
   );

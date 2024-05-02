@@ -18,9 +18,9 @@ import {
 
 const Header = ({ darkMode, setDarkMode }) => {
   return (
-    <div className="flex fixed m-6 max-w-[45rem] w-[95%]  flex-row  justify-between items-center">
+    <div className="flex fixed m-6 z-30 max-w-[45rem] w-[95%]  flex-row  justify-between items-center">
       <div />
-      <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center bg-opacity-20 backdrop-blur-md justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
+      <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-20 bg-opacity-20 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
       <Simple
         className="text-[1.6rem] "
         toggled={darkMode}
@@ -126,8 +126,8 @@ const FaceBanner = () => {
     />
     </div>
     <div className="flex flex-col gap-1">
-    <div className="text-2xl">Hello 👋</div>
-      <div className="font-semibold text-lg mb-2">Neil Stuart, 21.</div>
+    <div className="text-2xl">Neil Stuart 👋</div>
+      <div className="font-semibold text-lg mb-2">21.</div>
       <div className="text-sm">I am working on:</div>
       <div className="text-base text-stone-900 dark:text-stone-200">
         <b>Start100</b> <i>University of Galway</i><br/>
@@ -144,7 +144,7 @@ const Info = () => {
 
   return (
     <div className="flex fixed bottom-0 flex-col z-20 items-center mb-4">
-    <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-md border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
+    <div className="h-fit max-w-fit w-fit flex flex-col items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-sm border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
       <div className="flex flex-row gap-3 text-yellow-200 items-center justify-items-center">
         <motion.div
         whileHover={{rotate:-10,scale:1.05}}
@@ -221,7 +221,7 @@ export default function Index() {
           "flex max-w-screen w-screen min-h-screen select-none "
         }
       >
-        <div className="flex flex-col  md:overflow-hidden md:max-h-screen grow">
+        <div className="flex flex-col grow">
           <div
             className={
               "flex grow items-center text-slate-950 dark:text-slate-50  flex-col bg-stone-100 dark:bg-stone-900"
@@ -234,7 +234,7 @@ export default function Index() {
             <div className="text-xl mb-2 font-semibold ">
               Posts 🗞️
             </div>
-            <div className="grid grid-flow-row items-start grid-cols-1 md:grid-cols-2  scrollbar-hide   gap-5 w-full ">
+            <div className="grid grid-flow-row items-start grid-cols-1 sm:grid-cols-2  scrollbar-hide   gap-5 w-full ">
               {projects.length === 0 ? (<div className="text-base opacity-95 w-fit dark:bg-yellow-900 bg-yellow-300 rounded-lg p-3 align-center ">Nothing posted yet.</div>)
               :projects.map((project) => (
                 <Project darkMode={darkMode} slug={project.slug} key={project.id} title={project.title} />
@@ -256,6 +256,7 @@ export default function Index() {
             <Info/>
             <div className="min-h-[6rem]"/>
           </div>
+          <div className="h-fit dark:bg-stone-900 bg-stone-50 flex justify-center ">
           <motion.div animate={{}} 
           drag="x"
           style={{ x, opacity }}
@@ -264,6 +265,7 @@ export default function Index() {
          © Neil Stuart 2024
          
         </motion.div>
+        </div>
         </div>
 
       </div>
