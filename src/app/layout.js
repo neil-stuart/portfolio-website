@@ -2,11 +2,12 @@ import "./index.css";
 import "./output.css";
 import RootLayoutComponent from "./components/RootLayoutComponent";
 import NextTopLoader from "nextjs-toploader";
+
+import { DataProvider } from "./components/DataContext";
 export const metadata = {
   title: 'Neil Stuart',
   description: 'Portfolio website.',
 }
-import { DataProvider } from "./components/DataContext";
 export default function RootLayout({ children }) {
 
 
