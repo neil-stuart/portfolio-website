@@ -81,61 +81,47 @@ const Info = ({ darkMode, setDarkMode }) => {
             transition={{ duration: 0.2 }}
             className="fixed bottom-0 z-20 flex flex-row items-center gap-3 mb-4 text-yellow-200 justify-items-center"
           >
-            <div className="flex flex-row items-center gap-4 p-6 mb-3 text-xl font-semibold border h-fit max-w-fit w-fit rounded-xl bg-opacity-20 backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-200 dark:bg-stone-950 dark:bg-opacity-20">
-              <motion.div
+            <div className="flex flex-row items-center gap-4 p-6 mb-3 text-xl font-semibold border bg-opacity-70 h-fit max-w-fit w-fit rounded-xl backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-200 dark:bg-stone-950 dark:bg-opacity-20">
+             <Link href="CV2023.pdf">
+             <motion.div
                 key="CV"
                 whileHover={{ rotate: -10, scale: 1.05 }}
-                onClick={() => (window.location.href = "CV2023.pdf")}
-                className="border border-yellow-600 dark:border-yellow-200 duration-[0.3s] dark:hover:bg-yellow-900 hover:bg-yellow-200 dark:text-yellow-200 text-yellow-600 hover:cursor-pointer p-3 w-12 h-13 text-base rounded-lg"
+                className="border border-orange-600 dark:border-yellow-200  duration-[0.3s] hover:bg-orange-200 dark:hover:bg-yellow-900  text-orange-600 dark:text-yellow-200 hover:cursor-pointer p-3 w-12 h-13 text-base rounded-lg"
               >
                 CV
               </motion.div>
-
+              </Link>
+              <Link href="mailto:neil.stuart11@gmail.com">
               <motion.div
                 key="Email"
                 whileHover={{ rotate: 10, scale: 1.05 }}
-                onClick={() =>
-                  (window.location.href = "mailto:neil.stuart11@gmail.com")
-                }
-                className="border duration-[0.3s] hover:bg-purple-900 hover:cursor-pointer dark:border-purple-400 border-purple-900 p-3 w-12 h-13 text-base text-purple-400 rounded-lg"
+               
+                className="border duration-[0.3s] hover:bg-purple-300 dark:hover:bg-purple-900 hover:cursor-pointer dark:border-purple-400 border-purple-600 p-3 w-12 h-13 text-base text-purple-600 dark:text-purple-400 rounded-lg"
               >
                 <SiGmail title="Email" />
               </motion.div>
-
-              <motion.div
-                key="Website"
-                whileHover={{ rotate: -10, scale: 1.05 }}
-                onClick={() => (window.location.href = "https://neilstu.art/")}
-                className="border duration-[0.3s] hover:bg-blue-900 hover:cursor-pointer p-3  w-12 h-13 text-base  border-blue-400 rounded-lg"
-              >
-                <div
-                  title="Website"
-                  className="w-6 h-6 bg-blue-400 rounded-full"
-                />
-              </motion.div>
-
+              </Link>
+              <Link href="linkedin">
               <motion.div
                 key="Linkedin"
                 whileHover={{ rotate: 10, scale: 1.05 }}
-                onClick={() =>
-                  (window.location.href =
-                    "https://www.linkedin.com/in/neil-stuart-44705525b/")
-                }
-                className="border duration-[0.3s] dark:hover:bg-cyan-900 hover:bg-cyan-200  hover:cursor-pointer dark:text-cyan-300 text-cyan-500 dark:border-cyan-300 border-cyan-500 p-3 w-12 h-13 text-base rounded-lg"
+
+                className="border duration-[0.3s] hover:bg-cyan-100 dark:hover:bg-cyan-900  hover:cursor-pointer dark:text-cyan-300 text-cyan-600 border-cyan-600 dark:border-cyan-300  p-3 w-12 h-13 text-base rounded-lg"
               >
                 <SiLinkedin />
               </motion.div>
+              </Link>
 
+              <Link href="github">
               <motion.div
                 key="Github"
                 whileHover={{ rotate: -10, scale: 1.05 }}
-                onClick={() =>
-                  (window.location.href = "https://github.com/neil-stuart")
-                }
-                className="border duration-[0.3s] hover:bg-emerald-900 hover:cursor-pointer  text-emerald-400 border-emerald-400 p-3 w-12 h-13 text-base rounded-lg"
+
+                className="border duration-[0.3s] hover:bg-emerald-300 dark:hover:bg-emerald-900 hover:cursor-pointer  text-emerald-600 dark:text-emerald-400 border-emerald-600 dark:border-emerald-400 p-3 w-12 h-13 text-base rounded-lg"
               >
                 <SiGithub />
               </motion.div>
+              </Link>
             </div>
           </motion.div>
         )}
