@@ -2,7 +2,7 @@
   "name": "portfolio-v4",
   "version": "1.0.0",
   "private": true,
-  "engines":{
+  "engines": {
     "node": "20.x"
   },
   "dependencies": {
@@ -16,7 +16,8 @@
     "notion-client": "^6.16.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
-    "react-notion-x": "^6.16.0"
+    "react-notion-x": "^6.16.0",
+    "sharp": "^0.33.3"
   },
   "scripts": {
     "dev": "next dev",
