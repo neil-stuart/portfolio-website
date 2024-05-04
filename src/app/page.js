@@ -105,7 +105,8 @@ export default function Page({}) {
     if (!projectsData || !("meta" in projectsData)) {
       fetchData();
     }
-  }, [projectsData, setProjectsData]);
+  }, []);
+  
   return (
     <motion.div
     initial={{ opacity: 0, scale: 0.95 }}
@@ -122,13 +123,14 @@ export default function Page({}) {
           ) : (
             projectsData.meta.map((project) => (
               <motion.div
+              key={project.id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ ease: "easeOut", duration: 0.15 }}
               >
               <Project
                 slug={project.slug}
-                key={project.id}
+                
                 title={project.title}
               />
               </motion.div>
