@@ -1,7 +1,7 @@
 "use client"
 // Import necessary modules and components
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { NotionRenderer } from 'react-notion-x';
 import "@theme-toggles/react/css/Within.css";
 import 'react-notion-x/src/styles.css'
@@ -13,6 +13,8 @@ import "./page.css"
 import "./../../index.css"
 import "./../../output.css"
 import { useData } from "../../components/DataContext";
+
+
 // Dynamically import components
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then((m) => m.Code)
@@ -32,15 +34,27 @@ const Modal = dynamic(
 export default function Project({ params }) {
   const { projectsData, setProjectsData } = useData();
 
+  // Using fetched to prevent multiple fetches.
+  // TODO: identify the source of the bug that causes multiple useEffect calls.
+  
+  const fetched = useRef(false);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
+
+        if (fetched.current) {
+          return;
+        }
+
         // Check if data is already present at params.slug
         if (projectsData && params.slug in projectsData) {
           return;
         }
-  
+
+        fetched.current = true;
         const response = await fetch(`/api/project/slug/${params.slug}`);
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -51,9 +65,9 @@ export default function Project({ params }) {
         console.error("Error fetching project: ", error);
       }
     };
-  
+    
     fetchData();
-  }, [params.slug, projectsData]);
+  }, []);
   
 
   return (
