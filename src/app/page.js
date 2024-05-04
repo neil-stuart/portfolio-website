@@ -142,7 +142,7 @@ export default function Page({}) {
       <div className="flex flex-col max-w-[45rem] w-full pb-8 px-6">
         <div className="mb-2 text-xl font-semibold ">Projects 📚</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
-          <Project title="Launchcopy" img={launchcopyimg} link={"https://launchcopy.co"} description="Simple, lightweight, and fast copy for startups."/>
+          <Project title="Launchcopy" img={launchcopyimg} link={"https://launchcopy.co"} description="Simple, effective, and fast copy for startups."/>
         </div>
         <div className="mt-4 mb-2 text-xl font-semibold ">Posts 🗞️</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
