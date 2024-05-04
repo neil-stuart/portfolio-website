@@ -82,7 +82,7 @@ export default function Project({ params }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="text-xl fixed bottom-[50vh] w-[100vw] left-0 text-center font-semibold"
+                className="text-xl fixed bottom-[30vh] w-[100vw] left-0 text-center font-semibold"
               >
                 Please wait a moment...
               </motion.div>

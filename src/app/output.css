@@ -654,6 +654,14 @@ video {
   left: 0px;
 }
 
+.bottom-\[30vh\] {
+  bottom: 30vh;
+}
+
+.bottom-\[20vh\] {
+  bottom: 20vh;
+}
+
 .z-10 {
   z-index: 10;
 }
