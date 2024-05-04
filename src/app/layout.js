@@ -17,12 +17,12 @@ export default function RootLayout({ children }) {
           <NextTopLoader 
             color="#a8a29e"
             initialPosition={0.2}
-            crawlSpeed={300}
+            crawlSpeed={180}
             height={3}
             crawl={true}
             showSpinner={false}
             easing="ease"
-            speed={300}
+            speed={240}
           />
           <RootLayoutComponent>
             <DataProvider>
