@@ -15,12 +15,12 @@ const Project = ({ title, slug }) => {
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       whileHover={{ scale: 1.02, rotate: -2 }}
-      className="relative duration-200 rounded-2xl hover:bg-blue-200 dark:hover:bg-blue-900 cursor-pointer"
+      className="relative duration-200 cursor-pointer rounded-2xl hover:bg-blue-200 dark:hover:bg-blue-900"
 
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="flex flex-col w-full z-10 relative  min-h-[10rem]  justify-between p-8 border border-2 border-stone-950 dark:border-yellow-100 dark:border-opacity-45 rounded-2xl">
+      <div className="flex flex-col w-full z-10 relative  min-h-[10rem]  justify-between p-8 border-2 border-stone-950 dark:border-yellow-100 dark:border-opacity-45 rounded-2xl">
         <div className="font-semibold">{title}</div>
         <div className="flex flex-row justify-between">
           <h1 className="text-base text-stone-800 dark:text-stone-400">
@@ -111,12 +111,12 @@ export default function Page({}) {
     initial={{ opacity: 0, scale: 0.95 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ ease: "easeOut", duration: 0.15 }}
-    className="grow flex flex-col w-full items-center grow ">
+    className="flex flex-col items-center w-full grow ">
       <div className="flex flex-col max-w-[45rem] w-full pb-8 px-6">
-        <div className="text-xl mb-2 font-semibold ">Posts 🗞️</div>
-        <div className="grid grid-flow-row items-start grid-cols-1 sm:grid-cols-2  scrollbar-hide   gap-5 w-full ">
+        <div className="mb-2 text-xl font-semibold ">Posts 🗞️</div>
+        <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 scrollbar-hide ">
           {!projectsData || !("meta" in projectsData) ? (
-            <div className="text-base opacity-95 w-fit dark:bg-yellow-900 bg-yellow-300 rounded-lg p-3 align-center ">
+            <div className="p-3 text-base bg-yellow-300 rounded-lg opacity-95 w-fit dark:bg-yellow-900 align-center ">
               Nothing posted yet.
             </div>
           ) : (
@@ -138,9 +138,9 @@ export default function Page({}) {
       </div>
 
       <div className="flex flex-col max-w-[45rem] w-full pb-8 px-6">
-        <div className="text-xl mb-2 font-semibold ">Repositories</div>
-        <div className="flex flex-col gap-5 w-full ">
-          <div className="text-base opacity-95 w-fit dark:bg-green-900 bg-green-300 rounded-lg p-3 align-center ">
+        <div className="mb-2 text-xl font-semibold ">Repositories</div>
+        <div className="flex flex-col w-full gap-5 ">
+          <div className="p-3 text-base bg-green-300 rounded-lg opacity-95 w-fit dark:bg-green-900 align-center ">
             No repositories to show!
           </div>
         </div>

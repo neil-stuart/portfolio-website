@@ -29,7 +29,7 @@ const Header = ({ darkMode, setDarkMode }) => {
       className="flex fixed m-6 z-30 max-w-[45rem] w-[95%]  flex-row  justify-between items-center"
     >
       <div />
-      <div className="dark:text-stone-50 text-stone-900 bg-stone-200 flex items-center dark:bg-opacity-20 bg-opacity-20 backdrop-blur-sm justify-center border border-stone-700 px-3 py-3 rounded-xl dark:bg-stone-950">
+      <div className="flex items-center justify-center px-3 py-3 border dark:text-stone-50 text-stone-900 bg-stone-200 dark:bg-opacity-20 bg-opacity-20 backdrop-blur-sm border-stone-700 rounded-xl dark:bg-stone-950">
         <Simple
           className="text-[1.6rem] "
           toggled={darkMode}
@@ -43,7 +43,7 @@ const Header = ({ darkMode, setDarkMode }) => {
 const FaceBanner = () => {
   return (
     <div className="w-full max-w-[45rem] p-6 pb-8 flex flex-col sm:items-center sm:flex-row  gap-4">
-      <div className="rounded-2xl w-fit h-fit border dark:border-stone-700 border-stone-800">
+      <div className="border rounded-2xl w-fit h-fit dark:border-stone-700 border-stone-800">
         <Image
           src={portrait}
           width={140}
@@ -54,7 +54,7 @@ const FaceBanner = () => {
       </div>
       <div className="flex flex-col gap-1">
         <div className="text-2xl">Neil Stuart 👋</div>
-        <div className="font-semibold text-lg mb-2">21.</div>
+        <div className="mb-2 text-lg font-semibold">21.</div>
         <div className="text-sm">I am working on:</div>
         <div className="text-base text-stone-900 dark:text-stone-200">
           <b>Start100</b> <i>University of Galway</i>
@@ -79,9 +79,9 @@ const Info = ({ darkMode, setDarkMode }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10}}
             transition={{ duration: 0.2 }}
-            className="flex fixed bottom-0 z-20 mb-4 flex-row gap-3 text-yellow-200 items-center justify-items-center"
+            className="fixed bottom-0 z-20 flex flex-row items-center gap-3 mb-4 text-yellow-200 justify-items-center"
           >
-            <div className="h-fit max-w-fit w-fit flex flex-row items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-sm border border-stone-700 font-semibold text-xl text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
+            <div className="flex flex-row items-center gap-4 p-6 mb-3 text-xl font-semibold border h-fit max-w-fit w-fit rounded-xl bg-opacity-20 backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
               <motion.div
                 key="CV"
                 whileHover={{ rotate: -10, scale: 1.05 }}
@@ -110,7 +110,7 @@ const Info = ({ darkMode, setDarkMode }) => {
               >
                 <div
                   title="Website"
-                  className="w-6 h-6 rounded-full bg-blue-400"
+                  className="w-6 h-6 bg-blue-400 rounded-full"
                 />
               </motion.div>
 
@@ -148,9 +148,9 @@ const Info = ({ darkMode, setDarkMode }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="flex fixed bottom-0 z-20 items-center mb-4 flex-row gap-3 text-yellow-200 justify-items-center"
+            className="fixed bottom-0 z-20 flex flex-row items-center gap-3 mb-4 text-yellow-200 justify-items-center"
           >
-            <div className="h-fit max-w-fit w-fit flex flex-row items-center gap-4 mb-3  p-6 rounded-xl bg-opacity-20 backdrop-blur-sm border border-stone-700 text-amber-50  bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
+            <div className="flex flex-row items-center gap-4 p-6 mb-3 border h-fit max-w-fit w-fit rounded-xl bg-opacity-20 backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
               <motion.div
                 key="Home"
                 whileHover={{ rotate: 10, scale: 1.05 }}
@@ -205,13 +205,13 @@ export default function RootLayoutComponent({ children }) {
             {children}
 
             <Info darkMode={darkMode} setDarkMode={setDarkMode} />
-            <div className="h-fit dark:bg-stone-900 bg-stone-50 flex justify-center ">
+            <div className="flex justify-center h-fit dark:bg-stone-900 bg-stone-50 ">
               <motion.div
                 animate={{}}
                 drag="x"
                 style={{ x, opacity }}
                 dragConstraints={{ left: -10, right: 10 }}
-                className="text-base text-stone-800 dark:bg-stone-900 justify-center flex dark:text-stone-500"
+                className="flex justify-center text-base text-stone-800 dark:bg-stone-900 dark:text-stone-500"
               >
                 © Neil Stuart 2024
               </motion.div>

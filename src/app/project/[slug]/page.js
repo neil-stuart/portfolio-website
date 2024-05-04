@@ -58,9 +58,9 @@ export default function Project({ params }) {
 
   return (
 
-      <div className="w-screen min-h-screen flex flex-col items-center text-stone-900  dark:text-amber-50 dark:bg-stone-900 bg-stone-50">
+      <div className="flex flex-col items-center w-screen min-h-screen text-stone-900 dark:text-amber-50 dark:bg-stone-900 bg-stone-50">
        
-        <div className="mt-10 px-3">
+        <div className="px-3 mt-10">
           <AnimatePresence mode="wait">
             {!projectsData || !(params.slug in projectsData) ? (
               <motion.div
@@ -89,7 +89,7 @@ export default function Project({ params }) {
                     Modal
                   }}
                   fullPage={true}
-                  className="text-stone-900  dark:text-amber-50"
+                  className="text-stone-900 dark:text-amber-50"
                   disableHeader={true}
                 />
               </motion.div>
