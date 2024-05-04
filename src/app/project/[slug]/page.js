@@ -72,7 +72,7 @@ export default function Project({ params }) {
 
   return (
 
-      <div className="flex flex-col items-center w-screen min-h-screen text-stone-900 dark:text-amber-50 ">
+      <div className="flex flex-col items-center w-screen grow text-stone-900 dark:text-amber-50 ">
        
         <div className="px-3 mt-10">
           <AnimatePresence mode="wait">
@@ -82,7 +82,7 @@ export default function Project({ params }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="text-xl h-[90vh] flex items-center font-semibold"
+                className="text-xl fixed bottom-[50vh] w-[100vw] left-0 text-center font-semibold"
               >
                 Please wait a moment...
               </motion.div>

@@ -138,9 +138,9 @@ export default function Page({}) {
     initial={{ opacity: 0, scale: 0.95 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ ease: "easeOut", duration: 0.15 }}
-    className="flex flex-col items-center w-full grow ">
-      <div className="flex flex-col max-w-[45rem] w-full pb-8 px-6">
-        <div className="mb-2 text-xl font-semibold ">Projects 📚</div>
+    className="flex justify-center w-full grow">
+      <div className="flex flex-col max-w-[45rem] w-full pb-8 gap-5 px-6">
+        <div className="mb-2 text-xl font-semibold ">Projects</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           <Project title="Launchcopy" img={launchcopyimg} link={"https://launchcopy.co"} description="Simple, effective, and fast copy for startups."/>
         </div>
@@ -206,9 +206,10 @@ export default function Page({}) {
 
           }
         </div>
+        
       </div>
 
-      <div className="min-h-[6rem]" />
+      
     </motion.div>
   );
 }

@@ -205,6 +205,7 @@ export default function RootLayoutComponent({ children }) {
             {children}
 
             <Info darkMode={darkMode} setDarkMode={setDarkMode} />
+            <div className="min-h-[6rem]" />
             <div className="flex justify-center h-fit ">
               <motion.div
                 animate={{}}
