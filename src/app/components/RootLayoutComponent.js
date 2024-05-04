@@ -81,7 +81,7 @@ const Info = ({ darkMode, setDarkMode }) => {
             transition={{ duration: 0.2 }}
             className="fixed bottom-0 z-20 flex flex-row items-center gap-3 mb-4 text-yellow-200 justify-items-center"
           >
-            <div className="flex flex-row items-center gap-4 p-6 mb-3 text-xl font-semibold border h-fit max-w-fit w-fit rounded-xl bg-opacity-20 backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
+            <div className="flex flex-row items-center gap-4 p-6 mb-3 text-xl font-semibold border h-fit max-w-fit w-fit rounded-xl bg-opacity-20 backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-200 dark:bg-stone-950 dark:bg-opacity-20">
               <motion.div
                 key="CV"
                 whileHover={{ rotate: -10, scale: 1.05 }}
@@ -189,7 +189,7 @@ export default function RootLayoutComponent({ children }) {
   return (
     <div className={darkMode ? "dark flex w-screen" : "flex w-screen"}>
       <div className={"flex max-w-screen w-screen min-h-screen select-none"}>
-        <div className="flex flex-col grow bg-stone-100 dark:bg-stone-900">
+        <div className="flex flex-col grow bg-stone-300 dark:bg-stone-900">
           <div
             className={
               "flex grow items-center text-slate-950 dark:text-slate-50  flex-col "
@@ -205,7 +205,7 @@ export default function RootLayoutComponent({ children }) {
             {children}
 
             <Info darkMode={darkMode} setDarkMode={setDarkMode} />
-            <div className="flex justify-center h-fit dark:bg-stone-900 bg-stone-50 ">
+            <div className="flex justify-center h-fit ">
               <motion.div
                 animate={{}}
                 drag="x"

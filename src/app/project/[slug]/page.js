@@ -72,7 +72,7 @@ export default function Project({ params }) {
 
   return (
 
-      <div className="flex flex-col items-center w-screen min-h-screen text-stone-900 dark:text-amber-50 dark:bg-stone-900 bg-stone-100">
+      <div className="flex flex-col items-center w-screen min-h-screen text-stone-900 dark:text-amber-50 ">
        
         <div className="px-3 mt-10">
           <AnimatePresence mode="wait">
