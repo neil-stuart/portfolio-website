@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useData } from "./components/DataContext";
 import launchcopyimg from "../pics/launchcopy.webp";
+
+import mimicaiimg from "../pics/mimicai.webp";
 import Image from "next/image";
 const Post = ({ title, slug }) => {
   const [hovered, setHovered] = useState(false);
@@ -86,11 +88,11 @@ const Post = ({ title, slug }) => {
   );
 };
 
-const Project = ({ title, img, description, link }) => {
+const Project = ({ title, img, description, link, alt }) => {
 return(
   <Link href={link}>
   <div className="flex flex-row gap-4 p-3 duration-200 border border-opacity-0 rounded-md border-stone-500 hover:border-opacity-100">
-            <Image alt="launchcopy" src={img} className="w-20 h-20 rounded-full" />
+            <Image alt={alt} src={img} className="w-20 h-20" />
             <div>
             <div className="text-lg font-semibold">{title}</div> 
             <div className="text-base text-stone-800 dark:text-stone-400">{description}</div> 
@@ -142,7 +144,9 @@ export default function Page({}) {
       <div className="flex flex-col max-w-[45rem] w-full pb-8 gap-5 px-6">
         <div className="mb-2 text-xl font-semibold ">Projects</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
-          <Project title="Launchcopy" img={launchcopyimg} link={"https://launchcopy.co"} description="Simple, effective, and fast copy for startups."/>
+          <Project title="Launchcopy" alt="launchcopy" img={launchcopyimg} link={"https://launchcopy.co/"} description="Simple, effective, and fast copy for startups."/>
+          <Project title="MimicAI" alt="mimicai" img={mimicaiimg} link={"https://mimicai-app.vercel.app/"} description="Affordable cybersecurity awareness for SMEs."/>
+          
         </div>
         <div className="mt-4 mb-2 text-xl font-semibold ">Posts 🗞️</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
