@@ -165,7 +165,7 @@ export default function Page({}) {
               </div>
             </div>
           </Link>
-          <Link href="https://mimicai-app.vercel.app/">
+          <Link href="https://mimicai.dev/">
             <div className="flex flex-row gap-4 p-3 duration-200 border border-opacity-0 rounded-md border-stone-500 hover:border-opacity-100">
               <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 dark:invert-0 invert" />
               <div>
