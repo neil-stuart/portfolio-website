@@ -167,7 +167,7 @@ export default function Page({}) {
           </Link>
           <Link href="https://mimicai.dev/">
             <div className="flex flex-row gap-4 p-3 duration-200 border border-opacity-0 rounded-md border-stone-500 hover:border-opacity-100">
-              <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 dark:invert-0 invert" />
+              <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 " />
               <div>
                 <div className="text-lg font-semibold">MimicAI</div>
                 <div className="text-base text-stone-800 dark:text-stone-400">
@@ -196,7 +196,7 @@ export default function Page({}) {
             ))
           )}
         </div>
-        <div className="mt-6 mb-2 text-xl font-semibold ">Repositories ⛵</div>
+        <div className="mt-6 mb-2 text-xl font-semibold ">Code ⛵</div>
         <div className="flex flex-col w-full gap-5 ">
           {!repos ? (
             <div className="p-3 text-base bg-green-300 rounded-lg opacity-95 w-fit dark:bg-green-900 align-center ">

@@ -53,9 +53,9 @@ const FaceBanner = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <div className="text-2xl">Neil Stuart 👋</div>
+        <div className="text-2xl">Neil Stuart</div>
         <div className="mb-2 text-lg font-semibold">21.</div>
-        <div className="text-sm">I am working on:</div>
+        <div className="text-sm">Currently working at:</div>
         <div className="text-base text-stone-900 dark:text-stone-200">
           <b>Start100</b> <i>University of Galway</i>
           <br />
@@ -170,12 +170,12 @@ export default function RootLayoutComponent({ children }) {
   const x = useMotionValue(0);
   const opacity = useTransform(x, [-100, 0, 100], [0.5, 1, 0.5]);
   const pathname = usePathname();
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <div className={darkMode ? "dark flex w-screen" : "flex w-screen"}>
       <div className={"flex max-w-screen w-screen min-h-screen select-none"}>
-        <div className="flex flex-col grow bg-stone-300 dark:bg-stone-900">
+        <div className="flex flex-col grow bg-stone-200 dark:bg-stone-900">
           <div
             className={
               "flex grow items-center text-slate-950 dark:text-slate-50  flex-col "
