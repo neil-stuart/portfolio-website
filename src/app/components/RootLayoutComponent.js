@@ -46,22 +46,22 @@ const FaceBanner = () => {
       <div className="border rounded-2xl w-fit h-fit dark:border-stone-700 border-stone-800">
         <Image
           src={portrait}
-          width={140}
-          height={140}
+          width={150}
+          height={150}
           className="rounded-2xl"
           alt="Picture of the author"
         />
       </div>
-      <div className="flex flex-col gap-1">
-        <div className="text-2xl">Neil Stuart</div>
+      <div className="flex flex-col h-full gap-1 align-top">
+        <div className="text-2xl font-bold">Neil Stuart</div>
         <div className="mb-2 text-lg font-semibold">21.</div>
-        <div className="text-sm">Currently working at:</div>
+        {/* <div className="text-sm">Currently working at:</div>
         <div className="text-base text-stone-900 dark:text-stone-200">
           <b>Start100</b> <i>University of Galway</i>
           <br />
           <b>CMOS Amplifier Design for Sensor Interfaces</b>{" "}
           <i>Tyndall Institute</i>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -81,7 +81,7 @@ const Info = ({ darkMode, setDarkMode }) => {
             transition={{ duration: 0.2 }}
             className="fixed bottom-0 z-20 flex flex-row items-center gap-3 mb-4 text-yellow-200 justify-items-center"
           >
-            <div className="flex flex-row items-center gap-4 p-6 mb-3 text-xl font-semibold border bg-opacity-70 h-fit max-w-fit w-fit rounded-xl backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-200 dark:bg-stone-950 dark:bg-opacity-20">
+            <div className="flex flex-row items-center gap-4 p-6 mb-3 text-xl font-semibold border bg-opacity-70 h-fit max-w-fit w-fit rounded-xl backdrop-blur-sm border-stone-700 text-amber-50 bg-stone-50 dark:bg-stone-950 dark:bg-opacity-20">
              <Link href="CV2023.pdf">
              <motion.div
                 key="CV"
@@ -175,7 +175,7 @@ export default function RootLayoutComponent({ children }) {
   return (
     <div className={darkMode ? "dark flex w-screen" : "flex w-screen"}>
       <div className={"flex max-w-screen w-screen min-h-screen select-none"}>
-        <div className="flex flex-col grow bg-stone-200 dark:bg-stone-900">
+        <div className="flex flex-col grow bg-stone-50 dark:bg-stone-900">
           <div
             className={
               "flex grow items-center text-slate-950 dark:text-slate-50  flex-col "

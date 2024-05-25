@@ -1,6 +1,5 @@
 import { NotionAPI } from 'notion-client'
 
-
 export async function GET(req, { params }) {
     const id = params.id
     

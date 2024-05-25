@@ -148,40 +148,20 @@ export default function Page({}) {
       className="flex justify-center w-full grow"
     >
       <div className="flex flex-col max-w-[45rem] w-full pb-8 gap-5 px-6">
-        <div className="mb-2 text-xl font-semibold ">Projects</div>
-        <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
-          <Link href="https://launchcopy.co/">
-            <div className="flex flex-row gap-4 p-3 duration-200 border border-opacity-0 rounded-md border-stone-500 hover:border-opacity-100">
-              <Image
-                alt="launchcopy"
-                src={launchcopyimg}
-                className="w-20 h-20"
-              />
-              <div>
-                <div className="text-lg font-semibold">Launchcopy</div>
-                <div className="text-base text-stone-800 dark:text-stone-400">
-                  Simple, effective, and fast copy for startups.
-                </div>
-              </div>
-            </div>
-          </Link>
-          <Link href="https://mimicai.dev/">
-            <div className="flex flex-row gap-4 p-3 duration-200 border border-opacity-0 rounded-md border-stone-500 hover:border-opacity-100">
-              <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 " />
-              <div>
-                <div className="text-lg font-semibold">MimicAI</div>
-                <div className="text-base text-stone-800 dark:text-stone-400">
-                  Affordable cybersecurity awareness for SMEs.
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
+                {/* <div className="text-sm"></div>
+        <div className="text-lg text-stone-900 dark:text-stone-200">
+          <b>Start100</b> <i>University of Galway</i>
+          <br />
+          <br />
+          <b>CMOS Amplifier Design for Sensor Interfaces</b>{" "}
+          <i>Tyndall Institute</i>
+        </div> */}
+
         <div className="mt-4 mb-2 text-xl font-semibold ">Posts 🗞️</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           {!postData || !("meta" in postData) || postData.meta.length == 0 ? (
-            <div className="p-3 text-base bg-orange-300 rounded-lg opacity-95 w-fit dark:bg-yellow-900 align-center ">
-              Nothing posted yet.
+            <div className="w-full p-5 text-base text-center border rounded-lg text-stone-800 border-stone-300 align-center dark:border-stone-800 dark:text-stone-600">
+              Nothing posted yet...
             </div>
           ) : (
             postData.meta.map((project) => (
@@ -195,6 +175,35 @@ export default function Page({}) {
               </motion.div>
             ))
           )}
+        </div>
+        <div className="mt-6 mb-2 text-xl font-semibold ">Projects 🧭</div>
+        <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
+          <Link href="https://launchcopy.co/">
+            <div className="flex flex-row items-center gap-3 p-4 duration-200 border rounded-lg border-stone-300 hover:border-stone-500 dark:border-stone-800 ">
+              <Image
+                alt="launchcopy"
+                src={launchcopyimg}
+                className="w-20 h-20"
+              />
+              <div className="flex flex-col gap-3">
+                <div className="text-base font-semibold">Launchcopy</div>
+                <div className="text-sm text-stone-800 dark:text-stone-400">
+                  Simple, effective, and fast copy for startups.
+                </div>
+              </div>
+            </div>
+          </Link>
+          <Link href="https://mimicai.dev/">
+          <div className="flex flex-row items-center gap-3 p-4 duration-200 border rounded-lg dark:border-stone-800 border-stone-300 hover:border-stone-500 ">
+              <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 " />
+              <div className="flex flex-col gap-3">
+                <div className="text-base font-semibold">MimicAI</div>
+                <div className="text-sm text-stone-800 dark:text-stone-400">
+                  Affordable cybersecurity awareness for SMEs.
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
         <div className="mt-6 mb-2 text-xl font-semibold ">Code ⛵</div>
         <div className="flex flex-col w-full gap-5 ">
@@ -212,14 +221,13 @@ export default function Page({}) {
               {repos.map((repo, i) => (
                 <motion.div
                   key={i}
-                  className="pt-1"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                   whileHover={{ scale: 1.02, rotate: -2 }}
                 >
                   <Link href={repo.html_url}>
-                    <div className="flex flex-col w-full gap-2 p-4 duration-200 border rounded-lg hover:bg-amber-300 dark:hover:bg-amber-950 border-blue-950 dark:border-blue-500 dark:border-opacity-25">
+                    <div className="flex flex-col w-full gap-2 p-4 duration-200 border rounded-lg hover:bg-amber-300 dark:hover:bg-amber-950 border-stone-300 dark:border-stone-800">
                       <div className="font-semibold">{repo.name}</div>
 
                       <div className="text-sm text-stone-800 dark:text-stone-400">
