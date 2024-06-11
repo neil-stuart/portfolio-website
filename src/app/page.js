@@ -160,7 +160,7 @@ export default function Page({}) {
         <div className="mt-4 mb-2 text-xl font-semibold ">Posts 🗞️</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           {!postData || !("meta" in postData) || postData.meta.length == 0 ? (
-            <div className="w-full p-5 text-base text-center border rounded-lg text-stone-800 border-stone-300 align-center dark:border-stone-800 dark:text-stone-600">
+            <div className="w-full p-5 text-base text-center border bg-sky-200 rounded-2xl text-stone-800 align-center">
               Nothing posted yet...
             </div>
           ) : (
@@ -179,7 +179,7 @@ export default function Page({}) {
         <div className="mt-6 mb-2 text-xl font-semibold ">Projects 🧭</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           <Link href="https://launchcopy.co/">
-            <div className="flex flex-row items-center gap-3 p-4 duration-200 rounded-2xl bg-emerald-200 text-stone-900 ">
+            <div className="flex flex-row items-center gap-3 p-4 duration-200 bg-sky-200 rounded-2xl text-stone-900 ">
               <Image
                 alt="launchcopy"
                 src={launchcopyimg}
@@ -194,7 +194,7 @@ export default function Page({}) {
             </div>
           </Link>
           <Link href="https://mimicai.dev/">
-          <div className="flex flex-row items-center gap-3 p-4 duration-200 bg-blue-200 text-stone-900 rounded-2xl ">
+          <div className="flex flex-row items-center gap-3 p-4 duration-200 bg-sky-200 text-stone-900 rounded-2xl ">
               <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 " />
               <div className="flex flex-col gap-3">
                 <div className="text-base font-semibold">MimicAI</div>
@@ -227,7 +227,7 @@ export default function Page({}) {
                   whileHover={{ scale: 1.02, rotate: -2 }}
                 >
                   <Link href={repo.html_url}>
-                    <div className="flex flex-col w-full gap-2 p-4 duration-200 bg-teal-200 text-stone-900 rounded-2xl hover:bg-amber-300 dark:hover:bg-amber-950">
+                    <div className="flex flex-col w-full gap-2 p-4 transition-all duration-300 bg-sky-200 text-stone-900 rounded-2xl hover:bg-amber-300 ">
                       <div className="font-semibold">{repo.name}</div>
 
                       <div className="text-sm text-stone-800 ">
