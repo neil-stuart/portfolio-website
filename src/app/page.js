@@ -179,7 +179,7 @@ export default function Page({}) {
         <div className="mt-6 mb-2 text-xl font-semibold ">Projects 🧭</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           <Link href="https://launchcopy.co/">
-            <div className="flex flex-row items-center gap-3 p-4 duration-200 border rounded-lg border-stone-300 hover:border-stone-500 dark:border-stone-800 ">
+            <div className="flex flex-row items-center gap-3 p-4 duration-200 rounded-2xl bg-emerald-200 text-stone-900 ">
               <Image
                 alt="launchcopy"
                 src={launchcopyimg}
@@ -187,18 +187,18 @@ export default function Page({}) {
               />
               <div className="flex flex-col gap-3">
                 <div className="text-base font-semibold">Launchcopy</div>
-                <div className="text-sm text-stone-800 dark:text-stone-400">
+                <div className="text-sm text-stone-800 ">
                   Simple, effective, and fast copy for startups.
                 </div>
               </div>
             </div>
           </Link>
           <Link href="https://mimicai.dev/">
-          <div className="flex flex-row items-center gap-3 p-4 duration-200 border rounded-lg dark:border-stone-800 border-stone-300 hover:border-stone-500 ">
+          <div className="flex flex-row items-center gap-3 p-4 duration-200 bg-blue-200 text-stone-900 rounded-2xl ">
               <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 " />
               <div className="flex flex-col gap-3">
                 <div className="text-base font-semibold">MimicAI</div>
-                <div className="text-sm text-stone-800 dark:text-stone-400">
+                <div className="text-sm text-stone-800 ">
                   Affordable cybersecurity awareness for SMEs.
                 </div>
               </div>
@@ -227,18 +227,18 @@ export default function Page({}) {
                   whileHover={{ scale: 1.02, rotate: -2 }}
                 >
                   <Link href={repo.html_url}>
-                    <div className="flex flex-col w-full gap-2 p-4 duration-200 border rounded-lg hover:bg-amber-300 dark:hover:bg-amber-950 border-stone-300 dark:border-stone-800">
+                    <div className="flex flex-col w-full gap-2 p-4 duration-200 bg-teal-200 text-stone-900 rounded-2xl hover:bg-amber-300 dark:hover:bg-amber-950">
                       <div className="font-semibold">{repo.name}</div>
 
-                      <div className="text-sm text-stone-800 dark:text-stone-400">
+                      <div className="text-sm text-stone-800 ">
                         {repo.description}
                       </div>
-                      <div className="flex flex-row items-center gap-2 text-sm content text-stone-800 dark:text-stone-400">
+                      <div className="flex flex-row items-center gap-2 text-sm content text-stone-800 ">
                         <div className="w-3 h-3 bg-yellow-600 rounded-full" />
                         {repo.language}
                       </div>
 
-                      <div className="text-xs text-stone-800 dark:text-stone-400">
+                      <div className="text-xs text-stone-800 ">
                         {repo.updated_at}
                       </div>
                     </div>
