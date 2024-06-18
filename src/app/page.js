@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useData } from "./components/DataContext";
 import launchcopyimg from "../pics/launchcopy.webp";
 
-import mimicaiimg from "../pics/mimicai.webp";
+import mimicaiimg from "../pics/mimicai.png";
 import Image from "next/image";
 const Post = ({ title, slug }) => {
   const [hovered, setHovered] = useState(false);
@@ -160,7 +160,7 @@ export default function Page({}) {
         <div className="mt-4 mb-2 text-xl font-semibold ">Posts 🗞️</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           {!postData || !("meta" in postData) || postData.meta.length == 0 ? (
-            <div className="w-full p-5 text-base text-center border bg-sky-200 rounded-2xl text-stone-800 align-center">
+            <div className="w-full p-5 text-base text-center bg-blue-700 rounded-2xl text-stone-100 align-center">
               Nothing posted yet...
             </div>
           ) : (
@@ -179,27 +179,27 @@ export default function Page({}) {
         <div className="mt-6 mb-2 text-xl font-semibold ">Projects 🧭</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           <Link href="https://launchcopy.co/">
-            <div className="flex flex-row items-center gap-3 p-4 duration-200 bg-sky-200 rounded-2xl text-stone-900 ">
-              <Image
+          <div className="flex flex-row items-center gap-3 p-8 duration-500 border hover:bg-blue-200 dark:hover:bg-blue-900 rounded-2xl dark:border-stone-400 border-stone-800 text-stone-800 dark:text-stone-100 ">
+          <Image
                 alt="launchcopy"
                 src={launchcopyimg}
                 className="w-20 h-20"
               />
               <div className="flex flex-col gap-3">
                 <div className="text-base font-semibold">Launchcopy</div>
-                <div className="text-sm text-stone-800 ">
+                <div className="text-sm dark:text-stone-400">
                   Simple, effective, and fast copy for startups.
                 </div>
               </div>
             </div>
           </Link>
           <Link href="https://mimicai.dev/">
-          <div className="flex flex-row items-center gap-3 p-4 duration-200 bg-sky-200 text-stone-900 rounded-2xl ">
-              <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 " />
+          <div className="flex flex-row items-center gap-3 p-8 duration-500 border hover:bg-blue-200 dark:hover:bg-blue-900 rounded-2xl dark:border-stone-400 border-stone-800 text-stone-800 dark:text-stone-100 ">
+                  <Image alt="mimicai" src={mimicaiimg} className="w-20 h-20 " />
               <div className="flex flex-col gap-3">
                 <div className="text-base font-semibold">MimicAI</div>
-                <div className="text-sm text-stone-800 ">
-                  Affordable cybersecurity awareness for SMEs.
+                <div className="text-sm dark:text-stone-400">
+                  Innovative phishing protection for SMEs.
                 </div>
               </div>
             </div>
@@ -227,18 +227,18 @@ export default function Page({}) {
                   whileHover={{ scale: 1.02, rotate: -2 }}
                 >
                   <Link href={repo.html_url}>
-                    <div className="flex flex-col w-full gap-2 p-4 transition-all duration-300 bg-sky-200 text-stone-900 rounded-2xl hover:bg-amber-300 ">
+                    <div className="flex flex-col w-full gap-2 p-8 transition-all duration-300 border border-stone-800 dark:border-stone-400 text-stone-800 dark:text-stone-100 rounded-2xl hover:bg-blue-200 dark:hover:bg-blue-900 ">
                       <div className="font-semibold">{repo.name}</div>
 
-                      <div className="text-sm text-stone-800 ">
+                      <div className="text-sm dark:text-stone-400 ">
                         {repo.description}
                       </div>
-                      <div className="flex flex-row items-center gap-2 text-sm content text-stone-800 ">
+                      <div className="flex flex-row items-center gap-2 text-sm content dark:text-stone-400 ">
                         <div className="w-3 h-3 bg-yellow-600 rounded-full" />
                         {repo.language}
                       </div>
 
-                      <div className="text-xs text-stone-800 ">
+                      <div className="text-xs dark:text-stone-400 ">
                         {repo.updated_at}
                       </div>
                     </div>
