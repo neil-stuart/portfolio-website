@@ -160,7 +160,7 @@ export default function Page({}) {
         <div className="mt-4 mb-2 text-xl font-semibold ">Posts 🗞️</div>
         <div className="grid items-start w-full grid-flow-row grid-cols-1 gap-5 sm:grid-cols-2 ">
           {!postData || !("meta" in postData) || postData.meta.length == 0 ? (
-            <div className="w-full p-8 text-base text-center border border-stone-800 dark:border-stone-100 rounded-2xl text-stone-800 dark:text-stone-100 align-center">
+            <div className="w-full p-8 text-base text-center border border-stone-800 dark:border-stone-400 rounded-2xl text-stone-800 dark:text-stone-100 align-center">
               Nothing posted yet...
             </div>
           ) : (
